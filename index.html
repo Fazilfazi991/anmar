@@ -1199,11 +1199,19 @@
     .footer h4 { color: #f7fbff; }
 
     .footer .brand {
-      width: fit-content;
-      min-width: 0;
-      padding: 10px 12px;
-      border-radius: 8px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 32px;
+      border-radius: 12px;
       background: #ffffff;
+      margin-bottom: 24px;
+      width: auto;
+    }
+    
+    .footer .brand-logo {
+      width: 180px;
+      height: auto;
     }
 
     .footer p,
@@ -1427,15 +1435,23 @@
       .stat strong { font-size: 17px; }
       .stat span { font-size: 11px; }
     }
+
+    /* Scroll Animation CSS */
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    
+    .scroll-animate.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
-  <div class="top-strip">
-    <div class="container">
-      <div><span>3PL warehousing</span> for dry, ambient, chilled, frozen, and high-value inventory.</div>
-      <div>Riyadh</div>
-    </div>
-  </div>
+
 
   <header class="site-header">
     <div class="container nav">
@@ -2050,6 +2066,31 @@
       });
       startSlider();
     }
+
+    // Smooth scroll animations
+    document.addEventListener("DOMContentLoaded", function() {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          } else {
+            entry.target.classList.remove('in-view');
+          }
+        });
+      }, observerOptions);
+
+      const animateElements = document.querySelectorAll('.section, .footer, .hero-photo, .stats, .quote-bar');
+      animateElements.forEach(el => {
+        el.classList.add('scroll-animate');
+        observer.observe(el);
+      });
+    });
 
     // FAQ Accordion
     function toggleFaq(btn) {
