@@ -544,6 +544,13 @@ details p {
   background-position: center;
 }
 
+.card-top.medical { background-image: linear-gradient(135deg, rgba(8,38,74,0.18), rgba(216,180,106,0.1)), url("medical-storage-generated.png"); }
+.card-top.food { background-image: linear-gradient(135deg, rgba(8,38,74,0.18), rgba(216,180,106,0.1)), url("food-storage-generated.png"); }
+.card-top.cosmetics { background-image: linear-gradient(135deg, rgba(8,38,74,0.18), rgba(216,180,106,0.1)), url("cosmetics-storage-generated.png"); }
+.card-top.cold { background-image: linear-gradient(135deg, rgba(8,38,74,0.18), rgba(216,180,106,0.1)), url("cold-storage-generated.png"); }
+.card-top.dry,
+.card-top.threepl { background-image: linear-gradient(135deg, rgba(8,38,74,0.18), rgba(216,180,106,0.1)), url("storage-3pl-generated.png"); }
+
 .link {
   display: inline-flex;
   align-items: center;
