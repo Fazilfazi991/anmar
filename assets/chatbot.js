@@ -19,7 +19,14 @@
   const launcher = document.createElement("button");
   launcher.className = "lead-chat__launcher";
   launcher.type = "button";
-  launcher.textContent = "Storage Assistant";
+  launcher.setAttribute("aria-label", "Open storage quote assistant");
+  launcher.title = "Storage quote assistant";
+  launcher.innerHTML = `
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 12a7.5 7.5 0 0 1-7.5 7.5H8l-5 3 1.6-5.2A7.5 7.5 0 1 1 21 12Z"/>
+      <path d="M8 11h8M8 14h5"/>
+    </svg>
+  `;
 
   const widget = document.createElement("aside");
   widget.className = "lead-chat";
@@ -28,8 +35,8 @@
   widget.innerHTML = `
     <div class="lead-chat__panel">
       <div class="lead-chat__head">
-        <div><strong>Anmar Storage Assistant</strong><span>Quick quote details in under a minute</span></div>
-        <button class="lead-chat__close" type="button" aria-label="Close chat">×</button>
+        <div><strong>Storage Quote Assistant</strong><span>Share details for a faster warehouse quote</span></div>
+        <button class="lead-chat__close" type="button" aria-label="Close chat">&times;</button>
       </div>
       <form class="lead-chat__body">
         <div class="lead-chat__bubble"></div>
@@ -70,8 +77,8 @@
     backBtn.hidden = step === 0;
     nextBtn.textContent = step === questions.length - 1 ? "Send request" : "Next";
     bubble.textContent = step === 0
-      ? "Hi, what storage requirement can we help you with today?"
-      : "Great. Please share this detail so our team can quote accurately.";
+      ? "Hi. What warehouse storage do you need?"
+      : "Thanks. This detail helps us match the right storage option.";
 
     const value = answers[q.name] || "";
     let field = "";
