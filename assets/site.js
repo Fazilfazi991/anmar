@@ -14,3 +14,14 @@ if (menuButton && mobilePanel) {
     });
   });
 }
+
+const floatingWa = document.querySelector(".floating-wa");
+
+if (floatingWa) {
+  const updateFloatingWa = () => {
+    floatingWa.classList.toggle("visible", window.scrollY > 520);
+  };
+
+  updateFloatingWa();
+  window.addEventListener("scroll", updateFloatingWa, { passive: true });
+}
