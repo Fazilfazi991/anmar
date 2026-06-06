@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anmar Logistics | Warehousing in Riyadh</title>
+  <meta name="description" content="Secure, flexible warehousing and logistics support for medical, food, cosmetics, and retail businesses in Riyadh.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=IBM+Plex+Sans:wght@600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface: #f7f9fc;
+      --surface-low: #eef3f8;
+      --surface-mid: #dfe8f1;
+      --surface-high: #c8d6e4;
+      --card: #ffffff;
+      --ink: #071d3a;
+      --muted: #496176;
+      --outline: #b9c9d8;
+      --primary: #08264a;
+      --primary-strong: #04162c;
+      --primary-soft: #d9e8f7;
+      --gold: #d8b46a;
+      --gold-strong: #8a6422;
+      --charcoal: #071d3a;
+      --shadow: 0 14px 40px rgba(8, 38, 74, 0.13);
+      --container: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      margin: 0;
+      background: var(--surface);
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+
+    .container {
+      width: min(100% - 32px, var(--container));
+      margin-inline: auto;
+    }
+
+    .top-strip {
+      background: var(--charcoal);
+      color: #f0f1ef;
+      font-size: 13px;
+    }
+
+    .top-strip .container {
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .top-strip span {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .mobile-panel {
+      display: none;
+      border-top: 1px solid var(--outline);
+      background: var(--surface);
+    }
+
+    .mobile-panel.open { display: block; }
+
+    .mobile-panel .container {
+      display: grid;
+      gap: 10px;
+      padding-block: 16px;
+    }
+
+    .mobile-panel a {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--outline);
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 7px 12px;
+      border: 1px solid var(--outline);
+      border-radius: 999px;
+      background: var(--surface-low);
+      color: var(--primary);
+      font-family: "IBM Plex Sans", Inter, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--outline);
+      background: rgba(249, 250, 248, 0.92);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 218px;
+    }
+
+    .brand-logo {
+      display: block;
+      width: 210px;
+      max-width: 100%;
+      height: 62px;
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      padding-block: 27px 24px;
+      border-bottom: 3px solid transparent;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      white-space: nowrap;
+    }
+
+    .phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      border: 0;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: var(--primary-soft);
+      color: var(--primary-strong);
+    }
+
+    .menu-btn { display: none; }
+
+    .btn {
+      min-height: 46px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 20px;
+      color: #fff;
+      background: var(--primary);
+      font-weight: 700;
+      transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      background: var(--primary-strong);
+      box-shadow: var(--shadow);
+    }
+
+    .btn.secondary {
+      color: var(--primary);
+      background: transparent;
+      border-color: var(--primary);
+      font-weight: 600;
+    }
+
+    .btn.secondary:hover { background: var(--surface-low); box-shadow: none; }
+
+    .hero-slider {
+      position: relative;
+      height: 620px;
+      overflow: hidden;
+      background: #04162c;
+    }
+    @media (max-width: 760px) {
+      .hero-slider { height: 500px; }
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out, transform 4s ease-out;
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.05);
+    }
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+      transform: scale(1);
+    }
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(4,22,44,0.92) 0%, rgba(4,22,44,0.6) 40%, rgba(4,22,44,0.1) 100%);
+    }
+    .slide-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-bottom: 40px;
+    }
+    .slide h1, .slide .lead {
+      color: #fff;
+    }
+    .slide h1 span {
+      color: var(--gold);
+    }
+    .slide .eyebrow {
+      color: var(--gold);
+      border-color: rgba(216, 180, 106, 0.4);
+      background: rgba(216, 180, 106, 0.1);
+    }
+    .slider-nav {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+      display: flex;
+      gap: 12px;
+    }
+    .slider-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      cursor: pointer;
+      border: none;
+      padding: 0;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .slider-dot.active {
+      background: var(--gold);
+      transform: scale(1.3);
+    }
+    .slider-arrows {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 5;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .slider-arrow {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      pointer-events: auto;
+      backdrop-filter: blur(4px);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .slider-arrow:hover {
+      background: rgba(255,255,255,0.25);
+      transform: scale(1.05);
+    }
+    .quote-bar-wrapper {
+      position: relative;
+      z-index: 10;
+      margin-top: -60px;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Outfit", Inter, sans-serif;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 720px;
+      font-size: clamp(42px, 5vw, 68px);
+      font-weight: 700;
+    }
+
+    h1 span, .section-kicker { color: var(--primary); }
+    .lead {
+      max-width: 620px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-points span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 11px;
+      border: 1px solid var(--outline);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.78);
+      color: var(--primary-strong);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .hero-media {
+      position: relative;
+    }
+
+    .hero-photo {
+      position: relative;
+      min-height: 470px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(46, 49, 48, 0.18);
+      background: var(--charcoal);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 470px;
+      object-fit: cover;
+    }
+
+    .hero-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(46,49,48,0) 45%, rgba(46,49,48,0.78));
+    }
+
+    .stats {
+      position: absolute;
+      inset-inline: 22px;
+      bottom: 22px;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .stat {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      min-width: 0;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(12px);
+    }
+
+    .stat strong {
+      display: block;
+      font-family: "Outfit", Inter, sans-serif;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .quote-bar {
+      margin-top: 36px;
+      padding: 22px;
+      border: 1px solid var(--outline);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .quote-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .quote-title strong {
+      font-family: "Outfit", Inter, sans-serif;
+      font-size: 20px;
+    }
+
+    .quote-title span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .quote-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.2fr 1fr auto;
+      gap: 14px;
+      align-items: end;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-family: "IBM Plex Sans", Inter, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .field input, .field select {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid var(--outline);
+      border-radius: 4px;
+      padding: 10px 12px;
+      background: #fff;
+      color: var(--ink);
+      outline: 0;
+    }
+
+    .field input:focus, .field select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(8, 38, 74, 0.13);
+    }
+
+    .quote-result {
+      display: none;
+      margin-top: 16px;
+      padding: 16px;
+      border: 1px solid rgba(80, 97, 62, 0.25);
+      border-radius: 8px;
+      background: #f4f8ef;
+      color: var(--primary-strong);
+      font-size: 14px;
+    }
+
+    .quote-result.show { display: block; }
+
+    .proof-strip {
+      border-block: 1px solid var(--outline);
+      background: var(--surface-low);
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--outline);
+    }
+
+    .proof-item {
+      min-height: 132px;
+      display: grid;
+      align-content: center;
+      gap: 8px;
+      padding: 24px;
+      background: #0b2a50;
+    }
+
+    .proof-item strong {
+      font-family: "Outfit", Inter, sans-serif;
+      font-size: 34px;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .proof-item span {
+      color: #edf5ff;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .section {
+      padding: 84px 0;
+    }
+
+    .section.alt { background: var(--surface-low); }
+    .section.line { border-block: 1px solid var(--outline); }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+
+    .section-title {
+      display: grid;
+      gap: 10px;
+      max-width: 660px;
+    }
+
+    .section-title.center {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: clamp(30px, 3vw, 42px);
+      font-weight: 700;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      overflow: hidden;
+      border: 1px solid var(--outline);
+      border-radius: 8px;
+      background: var(--card);
+      transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow);
+    }
+
+    .service-visual {
+      position: relative;
+      min-height: 205px;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .service-visual.medical { background: #dceeed; }
+    .service-visual.food { background: #e9e4d8; }
+    .service-visual.cosmetics { background: #f1e0ca; }
+
+    .card-body {
+      position: relative;
+      display: grid;
+      gap: 13px;
+      padding: 28px 22px 24px;
+    }
+
+    h3 {
+      font-size: 23px;
+      font-weight: 700;
+    }
+
+    .card p, .feature p, .testimonial p, .article p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .capability-panel {
+      position: relative;
+      padding: 40px 34px;
+      border-radius: 12px;
+      background: var(--charcoal);
+      background-image: url('assets/world-map-network.png');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .capability-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(4,22,44,0.93) 0%, rgba(4,22,44,0.75) 60%, rgba(4,22,44,0.55) 100%);
+      border-radius: inherit;
+    }
+
+    .capability-panel > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .capability-panel h2,
+    .capability-panel p { color: white; }
+
+    .capability-panel p { color: #c8d8e8; }
+
+    .capability-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .capability {
+      display: grid;
+      gap: 10px;
+      padding: 20px;
+      border: 1px solid var(--outline);
+      border-radius: 8px;
+      background: var(--card);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .capability:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    .capability b {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--primary-soft);
+      color: var(--primary-strong);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+      font-size: 12px;
+      font-weight: 700;
+      backdrop-filter: blur(4px);
+      transition: background 0.2s;
+    }
+
+    .chip:hover {
+      background: rgba(255,255,255,0.18);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+      min-height: 184px;
+      padding: 28px 20px;
+      border: 1px solid var(--outline);
+      border-radius: 8px;
+      background: var(--card);
+      text-align: center;
+    }
+
+    .feature-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      position: relative;
+    }
+
+    .process-card {
+      position: relative;
+      min-height: 210px;
+      padding: 24px;
+      border: 1px solid var(--outline);
+      border-radius: 8px;
+      background: var(--card);
+    }
+
+    .step {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      font-weight: 800;
+    }
+
+    /* ── Hub / Locations Section ── */
+    .hub-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hub-text {
+      display: grid;
+      gap: 18px;
+    }
+
+    .hub-text h2 {
+      font-size: 32px;
+      line-height: 1.15;
+    }
+
+    .hub-text h2 span {
+      color: var(--primary);
+    }
+
+    .hub-text p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .hub-location-tag {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      border: 1px solid var(--outline);
+      border-radius: 10px;
+      background: var(--card);
+      margin-top: 6px;
+    }
+
+    .hub-location-tag strong {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+    }
+
+    .hub-location-tag span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Center image blob */
+    .hub-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hub-image-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1;
+      max-width: 340px;
+      margin: 0 auto;
+      border-radius: 50% 50% 50% 50% / 42% 42% 58% 58%;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(4,22,44,0.15);
+    }
+
+    .hub-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hub-icon-badge {
+      position: absolute;
+      bottom: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: var(--primary);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 6px 20px rgba(8,38,74,0.3);
+      z-index: 2;
+    }
+
+    .hub-icon-badge svg {
+      width: 26px;
+      height: 26px;
+      color: #fff;
+    }
+
+    /* Right feature cards */
+    .hub-features {
+      display: grid;
+      gap: 18px;
+    }
+
+    .hub-feature {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px;
+      border: 1px solid var(--outline);
+      border-radius: 12px;
+      background: var(--card);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .hub-feature:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(4,22,44,0.1);
+    }
+
+    .hub-feature-icon {
+      flex-shrink: 0;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: grid;
+      place-items: center;
+      color: #fff;
+    }
+
+    .hub-feature-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .hub-feature-text h3 {
+      font-size: 16px;
+      margin: 0 0 4px;
+    }
+
+    .hub-feature-text p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .testimonials, .articles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial, .article {
+      border: 1px solid var(--outline);
+      border-radius: 8px;
+      background: var(--card);
+      padding: 26px;
+      box-shadow: 0 8px 24px rgba(46, 49, 48, 0.04);
+    }
+
+    .quote-mark {
+      color: var(--primary);
+      font-family: Georgia, serif;
+      font-size: 42px;
+      line-height: 1;
+      opacity: 0.5;
+    }
+
+    .person {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--outline);
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--outline);
+      border-radius: 8px;
+      background: var(--surface-low);
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .person strong { display: block; font-size: 14px; }
+    .person span {
+      color: var(--muted);
+      font-family: "IBM Plex Sans", Inter, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .article { padding: 0; overflow: hidden; }
+
+    .article-image {
+      min-height: 176px;
+      background: #c8d6e4;
+    }
+
+    .article-body {
+      display: grid;
+      gap: 12px;
+      padding: 22px;
+    }
+
+    .tag {
+      color: var(--primary);
+      font-family: "IBM Plex Sans", Inter, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .cta {
+      padding: 52px;
+      border-radius: 8px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      background: var(--charcoal);
+      color: white;
+    }
+
+    /* ── FAQ Section ── */
+    .faq-section {
+      overflow: visible;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      align-items: stretch;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(4,22,44,0.12);
+    }
+
+    .faq-panel {
+      position: relative;
+      background: #04162c;
+      padding: 52px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .faq-panel .section-kicker {
+      color: #4a9eff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    .faq-panel h2 {
+      color: #fff;
+      font-size: 36px;
+      line-height: 1.15;
+      margin: 0 0 8px;
+    }
+
+    .faq-panel-line {
+      width: 44px;
+      height: 3px;
+      background: #4a9eff;
+      border-radius: 2px;
+      margin: 18px 0 22px;
+    }
+
+    .faq-panel p {
+      color: #94b8d0;
+      font-size: 14px;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* Decorative dot grid */
+    .faq-dots {
+      position: absolute;
+      bottom: 28px;
+      left: 28px;
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 7px;
+      opacity: 0.35;
+    }
+
+    .faq-dots span {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #4a9eff;
+      display: block;
+    }
+
+    .faq-list {
+      padding: 32px 36px;
+      display: grid;
+      gap: 14px;
+      align-content: center;
+      background: var(--surface-low, #f0f4f8);
+    }
+
+    /* Custom accordion — no browser details triangle */
+    .faq-item {
+      background: #fff;
+      border: 1px solid #e3eaf3;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+
+    .faq-item:hover {
+      box-shadow: 0 4px 18px rgba(4,22,44,0.09);
+    }
+
+    .faq-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .faq-icon-badge {
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #e8f0fa;
+      display: grid;
+      place-items: center;
+      color: #1b3a6b;
+    }
+
+    .faq-icon-badge svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .faq-trigger-label {
+      flex: 1;
+      font-size: 15px;
+      font-weight: 700;
+      color: #04162c;
+      line-height: 1.4;
+    }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      color: #6b82a0;
+      transition: transform 0.28s ease;
+    }
+
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.32s ease, padding 0.28s ease;
+      padding: 0 20px 0 76px;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 220px;
+      padding-bottom: 20px;
+    }
+
+    .faq-answer p {
+      margin: 0;
+      color: #5a6f87;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .footer {
+      background: #04162c;
+      border-top: 1px solid var(--outline);
+    }
+
+    .footer .brand-name,
+    .footer h4 { color: #f7fbff; }
+
+    .footer .brand {
+      width: fit-content;
+      min-width: 0;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .footer p,
+    .footer a,
+    .copyright { color: #dbe8f4; }
+
+    .floating-wa {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 30;
+      min-height: 50px;
+      border-radius: 999px;
+      padding-inline: 18px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      box-shadow: 0 18px 42px rgba(46, 49, 48, 0.2);
+    }
+
+    .floating-wa.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .cta h2, .cta p { color: white; }
+    .cta p { margin: 10px 0 0; max-width: 620px; color: #e2e4d7; }
+    .cta .btn { background: var(--gold); color: #261900; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.25fr repeat(4, 1fr);
+      gap: 34px;
+      padding: 48px 0;
+    }
+
+    .footer p, .footer a {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer h4 {
+      margin: 0 0 14px;
+      font-family: "Outfit", Inter, sans-serif;
+      font-size: 17px;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .copyright {
+      border-top: 1px solid var(--outline);
+      padding: 18px 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 1040px) {
+      .nav-links, .nav-actions { display: none; }
+      .menu-btn { display: grid; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .quote-form { grid-template-columns: repeat(2, 1fr); }
+      .quote-form .btn { grid-column: 1 / -1; }
+      .feature-grid, .footer-grid, .proof-grid, .process { grid-template-columns: repeat(2, 1fr); }
+      .capability-grid { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .faq-panel { padding: 40px 28px; min-height: auto; }
+      .faq-list { padding: 28px; }
+      .hero-photo, .hero-photo img { min-height: 380px; }
+      .hub-layout { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .hub-text { grid-column: 1 / -1; }
+      .hub-image-wrap { max-width: 280px; }
+      .testimonials, .articles { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 760px) {
+      /* — Base spacing — */
+      .top-strip .container { align-items: flex-start; flex-direction: column; padding-block: 10px; }
+      .top-strip { font-size: 12px; }
+      .container { width: min(100% - 20px, var(--container)); }
+      .section { padding: 48px 0; }
+      .section-head { display: grid; align-items: start; gap: 12px; }
+
+      /* — Nav — */
+      .nav { min-height: 60px; }
+      .brand { min-width: 0; }
+      .brand-logo { width: 140px; height: 44px; }
+
+      /* — Hero slider — */
+      .hero-slider { height: 480px; }
+      .slide-content { padding-bottom: 60px; }
+      h1 { font-size: 30px; }
+      .lead { font-size: 14px; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; text-align: center; }
+      .slider-nav { bottom: 50px; gap: 10px; }
+      .slider-dot { width: 8px; height: 8px; }
+      .slider-arrows { padding: 0 10px; }
+      .slider-arrow { width: 36px; height: 36px; }
+      .slider-arrow svg { width: 18px; height: 18px; }
+
+      /* — Quote bar — */
+      .quote-bar-wrapper { margin-top: -40px; }
+      .quote-bar { margin-top: 20px; padding: 16px; }
+      .quote-title { display: grid; gap: 4px; }
+      .quote-title strong { font-size: 17px; }
+      .quote-form { grid-template-columns: 1fr; gap: 12px; }
+      .field input, .field select { min-height: 44px; }
+
+      /* — Proof strip — */
+      .proof-grid { grid-template-columns: repeat(2, 1fr); }
+      .proof-item { min-height: 100px; padding: 18px; }
+      .proof-item strong { font-size: 22px; }
+
+      /* — Service cards — */
+      .cards { grid-template-columns: 1fr; }
+      .service-visual { min-height: 180px; }
+
+      /* — Capabilities section — */
+      .capability-grid { grid-template-columns: 1fr; }
+      .capability-panel { padding: 28px 22px; }
+      .capability-list { grid-template-columns: 1fr; }
+      .capability h3 { font-size: 18px; }
+
+      /* — Feature grid + process — */
+      .feature-grid { grid-template-columns: 1fr; }
+      .feature { min-height: auto; padding: 22px 16px; }
+      .process { grid-template-columns: 1fr; }
+      .process-card { min-height: auto; }
+
+      /* — Hub / Locations — */
+      .hub-layout { grid-template-columns: 1fr; gap: 30px; }
+      .hub-text { text-align: center; justify-items: center; }
+      .hub-image-wrap { max-width: 260px; }
+      .hub-icon-badge { width: 46px; height: 46px; }
+      .hub-feature { padding: 16px; }
+      .hub-feature-icon { width: 40px; height: 40px; }
+      .hub-feature-icon svg { width: 18px; height: 18px; }
+
+      /* — Testimonials — */
+      .testimonials { grid-template-columns: 1fr; }
+
+      /* — Articles — */
+      .articles { grid-template-columns: 1fr; }
+
+      /* — FAQ — */
+      .faq-grid { grid-template-columns: 1fr; border-radius: 12px; }
+      .faq-panel { padding: 32px 22px; }
+      .faq-panel h2 { font-size: 28px; }
+      .faq-dots { display: none; }
+      .faq-list { padding: 20px 16px; }
+      .faq-trigger { padding: 14px 14px; gap: 10px; }
+      .faq-icon-badge { width: 36px; height: 36px; }
+      .faq-icon-badge svg { width: 16px; height: 16px; }
+      .faq-trigger-label { font-size: 14px; }
+      .faq-chevron { width: 18px; height: 18px; }
+      .faq-answer { padding-left: 60px; }
+      .faq-item.open .faq-answer { padding-bottom: 16px; }
+
+      /* — CTA — */
+      .cta { padding: 28px 20px; grid-template-columns: 1fr; text-align: center; }
+      .cta .btn { width: 100%; }
+      .cta h2 { font-size: 22px; }
+
+      /* — Footer — */
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .floating-wa { left: 12px; right: 12px; width: auto; }
+    }
+
+    @media (max-width: 480px) {
+      /* — Very small phones — */
+      .container { width: min(100% - 16px, var(--container)); }
+      .section { padding: 38px 0; }
+      h1 { font-size: 26px; }
+      h2 { font-size: 22px; }
+      .lead { font-size: 13px; }
+      .hero-slider { height: 440px; }
+      .slide-content { padding-bottom: 50px; }
+      .slider-arrows { display: none; }
+      .eyebrow { font-size: 10px; padding: 5px 10px; }
+
+      /* — Quote — */
+      .quote-bar-wrapper { margin-top: -30px; }
+      .quote-bar { padding: 14px; }
+      .quote-title strong { font-size: 16px; }
+
+      /* — Proof — */
+      .proof-grid { grid-template-columns: 1fr; }
+      .proof-item { min-height: auto; padding: 14px; }
+
+      /* — Capability panel — */
+      .capability-panel { padding: 22px 18px; }
+      .capability-panel h2 { font-size: 22px; }
+      .chips { gap: 6px; margin-top: 16px; }
+      .chip { padding: 6px 9px; font-size: 11px; }
+
+      /* — FAQ tighter — */
+      .faq-grid { border-radius: 10px; }
+      .faq-panel { padding: 26px 18px; }
+      .faq-panel h2 { font-size: 24px; }
+      .faq-list { padding: 16px 12px; gap: 10px; }
+      .faq-trigger { padding: 12px; gap: 8px; }
+      .faq-icon-badge { width: 32px; height: 32px; }
+      .faq-trigger-label { font-size: 13px; }
+      .faq-answer { padding-left: 52px; }
+      .faq-answer p { font-size: 13px; }
+
+      /* — CTA — */
+      .cta { padding: 24px 16px; }
+      .cta h2 { font-size: 20px; }
+
+      /* — Footer — */
+      .footer-grid { padding: 32px 0; }
+      .copyright { padding: 14px 0; }
+
+      /* — Stat cards — */
+      .stat { padding: 10px; }
+      .stat strong { font-size: 17px; }
+      .stat span { font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-strip">
+    <div class="container">
+      <div><span>3PL warehousing</span> for dry, ambient, chilled, frozen, and high-value inventory.</div>
+      <div>Riyadh</div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Anmar Logistics home">
+        <img class="brand-logo" src="assets/anmar-logo-transparent.png" alt="Anmar Al Yasmin Logistics Company">
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="active" href="#top">Home</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#locations">Locations</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="phone" href="tel:+966123456789">+966 12 345 6789</a>
+        <a class="icon-btn" href="https://wa.me/966123456789" aria-label="WhatsApp">WA</a>
+        <a class="btn" href="#quote">Request a Quote <span aria-hidden="true">-></span></a>
+      </div>
+      <button class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-expanded="false">Menu</button>
+    </div>
+    <nav class="mobile-panel" id="mobilePanel" aria-label="Mobile navigation">
+      <div class="container">
+        <a href="#solutions">Solutions</a>
+        <a href="#locations">Locations</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#quote">Request a Quote</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero-slider">
+      <div class="slide active" style="background-image: url('assets/warehouse-hero.png');">
+        <div class="container slide-content">
+          <div style="max-width: 680px; display: grid; gap: 24px;">
+            <span class="eyebrow">Strategic Warehousing</span>
+            <h1>Reliable Warehousing <span>in Riyadh</span></h1>
+            <p class="lead">Secure and flexible storage solutions for medical, food, cosmetics, and retail businesses. Built for scale, designed for compliance, and supported by our dedicated local team.</p>
+            <div class="hero-actions" style="display: flex; gap: 14px;">
+              <a class="btn" href="#quote">Request a Quote <span aria-hidden="true">-></span></a>
+              <a class="btn secondary" href="#locations" style="color: #fff; border-color: rgba(255,255,255,0.4);">Explore Operations</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide" style="background-image: url('assets/food-warehouse.png');">
+        <div class="container slide-content">
+          <div style="max-width: 680px; display: grid; gap: 24px;">
+            <span class="eyebrow">Temperature Controlled</span>
+            <h1>Specialized <span>Food Storage</span></h1>
+            <p class="lead">Hygienic storage for packaged, chilled, frozen, and dry food products with dependable handling and route planning support.</p>
+            <div class="hero-actions" style="display: flex; gap: 14px;">
+              <a class="btn" href="#quote">Get Pricing <span aria-hidden="true">-></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('assets/medical-warehouse.png');">
+        <div class="container slide-content">
+          <div style="max-width: 680px; display: grid; gap: 24px;">
+            <span class="eyebrow">SFDA Compliant</span>
+            <h1>Secure <span>Medical Logistics</span></h1>
+            <p class="lead">Compliant storage for pharmaceuticals and medical devices. We maintain the highest standards of cleanliness, security, and climate control.</p>
+            <div class="hero-actions" style="display: flex; gap: 14px;">
+              <a class="btn" href="#quote">Request a Quote <span aria-hidden="true">-></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-arrows container" style="position: absolute; left: 50%; transform: translate(-50%, -50%);">
+        <button class="slider-arrow prev" aria-label="Previous slide">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="slider-arrow next" aria-label="Next slide">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+      
+      <div class="slider-nav">
+        <button class="slider-dot active" aria-label="Go to slide 1"></button>
+        <button class="slider-dot" aria-label="Go to slide 2"></button>
+        <button class="slider-dot" aria-label="Go to slide 3"></button>
+      </div>
+    </section>
+
+    <div class="container quote-bar-wrapper">
+      <div class="quote-bar" id="quote">
+          <div class="quote-title">
+            <strong>Find a suitable warehouse</strong>
+            <span>Answer 4 fields and we will recommend the right storage profile.</span>
+          </div>
+          <form class="quote-form" id="quoteForm">
+            <div class="field">
+              <label for="category">Product Category</label>
+              <select id="category" name="category" required>
+                <option value="">Select Category</option>
+                <option>Medical</option>
+                <option>Food</option>
+                <option>Cosmetics</option>
+                <option>Retail</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="city">City</label>
+              <select id="city" name="city" required>
+                <option value="Riyadh">Riyadh</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="requirement">Storage Requirement</label>
+              <input id="requirement" name="requirement" type="text" placeholder="Pallets / Sq. Ft. / Tons" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" type="tel" placeholder="05X XXX XXXX" required>
+            </div>
+            <button class="btn" type="submit">Get Pricing <span aria-hidden="true">-></span></button>
+          </form>
+          <div class="quote-result" id="quoteResult" role="status"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-strip" aria-label="Operational statistics">
+      <div class="container proof-grid">
+        <div class="proof-item"><strong>200K+</strong><span>Sqm partner-ready storage capacity</span></div>
+        <div class="proof-item"><strong>-18C</strong><span>Frozen through ambient options</span></div>
+        <div class="proof-item"><strong>24/7</strong><span>Security and operational support</span></div>
+        <div class="proof-item"><strong>3PL</strong><span>Storage, transport, fulfillment, and reporting</span></div>
+      </div>
+    </section>
+
+    <section class="section services" id="solutions">
+      <div class="container">
+        <div class="section-title center">
+          <span class="section-kicker">Storage Solutions</span>
+          <h2>Storage built around your industry</h2>
+          <p>Choose compliant environments for sensitive products, fast-moving inventory, or premium consumer goods.</p>
+        </div>
+        <div class="cards" style="margin-top: 34px;">
+          <article class="card">
+            <div class="service-visual medical" role="img" aria-label="Clean medical storage shelves"></div>
+            <div class="card-body">
+              <span class="card-icon">+</span>
+              <h3>Medical Storage</h3>
+              <p>Secure and compliant storage for pharmaceuticals, medical devices, and healthcare products.</p>
+              <a class="text-link" href="#">Learn More <span aria-hidden="true">-></span></a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="service-visual food" role="img" aria-label="Organized food warehouse storage"></div>
+            <div class="card-body">
+              <span class="card-icon">F</span>
+              <h3>Food Storage</h3>
+              <p>Hygienic storage for packaged, chilled, frozen, and dry food products with dependable handling.</p>
+              <a class="text-link" href="#">Learn More <span aria-hidden="true">-></span></a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="service-visual cosmetics" role="img" aria-label="Premium cosmetics storage display"></div>
+            <div class="card-body">
+              <span class="card-icon">C</span>
+              <h3>Cosmetics Storage</h3>
+              <p>Ideal storage for skincare, perfumes, and personal-care products requiring clean, stable conditions.</p>
+              <a class="text-link" href="#">Learn More <span aria-hidden="true">-></span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt capabilities">
+      <div class="container capability-grid">
+        <div class="capability-panel">
+          <span class="eyebrow">Integrated logistics</span>
+          <div class="section-title" style="margin-top: 16px; margin-bottom: 6px;">
+            <h2>More than empty space</h2>
+            <p>End-to-end warehousing services including 3PL, cold chain, e-commerce fulfillment, and live inventory reporting — all from our Riyadh facility.</p>
+          </div>
+          <div class="chips">
+            <span class="chip">2PL</span>
+            <span class="chip">3PL</span>
+            <span class="chip">Cold chain</span>
+            <span class="chip">E-commerce fulfillment</span>
+            <span class="chip">Inventory reporting</span>
+            <span class="chip">SFDA compliant</span>
+            <span class="chip">FIFO / FEFO</span>
+          </div>
+          <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; gap: 16px;">
+            <div style="width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,0.12); display: grid; place-items: center; font-size: 20px;">📍</div>
+            <div>
+              <div style="font-size: 13px; font-weight: 700; color: #fff;">Currently operating from Riyadh</div>
+              <div style="font-size: 12px; color: #94b8d0; margin-top: 2px;">Centrally located for KSA-wide distribution</div>
+            </div>
+          </div>
+        </div>
+        <div class="capability-list">
+          <article class="capability"><b>01</b><h3>Temperature Zones</h3><p>Dry, ambient, chilled, and frozen environments for food, pharma, cosmetics, and FMCG.</p></article>
+          <article class="capability"><b>02</b><h3>Inventory Control</h3><p>Product identification, location tracking, FIFO/FEFO rotation, and stock-level reporting.</p></article>
+          <article class="capability"><b>03</b><h3>Distribution</h3><p>Centralized Riyadh positioning for rapid and efficient local delivery routes.</p></article>
+          <article class="capability"><b>04</b><h3>Custom Fit</h3><p>Flexible contracts for monthly overflow, long-term storage, seasonal stock, and launch inventory.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt why" id="why">
+      <div class="container">
+        <div class="section-title center">
+          <span class="section-kicker">Why Choose Us</span>
+          <h2>Quietly dependable logistics infrastructure</h2>
+        </div>
+        <div class="feature-grid" style="margin-top: 34px;">
+          <div class="feature"><span class="feature-icon">01</span><h3>Modern Facilities</h3><p>Clean infrastructure with suitable environments for different product categories.</p></div>
+          <div class="feature"><span class="feature-icon">02</span><h3>Strategic Sites</h3><p>Access to major cities, ports, industrial zones, and regional distribution lanes.</p></div>
+          <div class="feature"><span class="feature-icon">03</span><h3>Scalable Space</h3><p>Flexible capacity for seasonal demand, new launches, and business growth.</p></div>
+          <div class="feature"><span class="feature-icon">04</span><h3>Dedicated Support</h3><p>Responsive coordination from quote request through storage and dispatch.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process-section">
+      <div class="container">
+        <div class="section-title center">
+          <span class="section-kicker">How It Works</span>
+          <h2>From quote request to active storage</h2>
+          <p>Our streamlined process ensures your inventory is received and managed efficiently.</p>
+        </div>
+        <div class="process" style="margin-top: 34px;">
+          <article class="process-card"><span class="step">1</span><h3>Share requirements</h3><p>Send product category, city, storage condition, volume, and target start date.</p></article>
+          <article class="process-card"><span class="step">2</span><h3>Match capacity</h3><p>We shortlist suitable warehouse profiles and storage zones for the inventory.</p></article>
+          <article class="process-card"><span class="step">3</span><h3>Confirm operation</h3><p>Agree pricing, handling needs, reporting cadence, and inbound schedule.</p></article>
+          <article class="process-card"><span class="step">4</span><h3>Go live</h3><p>Receive inbound goods, track stock, and coordinate distribution from the selected hub.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section locations-section" id="locations">
+      <div class="container hub-layout">
+
+        <!-- Left: text -->
+        <div class="hub-text">
+          <span class="eyebrow">Riyadh Hub</span>
+          <h2>A central warehouse built around <span>your business</span></h2>
+          <p>Our premier Riyadh facility is strategically positioned to serve your operational needs, inventory profile, and route priorities.</p>
+          <div class="hub-location-tag">
+            <strong>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 1 8 8c0 5.25-8 14-8 14S4 15.25 4 10a8 8 0 0 1 8-8z"/></svg>
+              Riyadh
+            </strong>
+            <span>Central distribution</span>
+          </div>
+        </div>
+
+        <!-- Center: image -->
+        <div class="hub-visual">
+          <div class="hub-image-wrap">
+            <img src="assets/warehouse-exterior.png" alt="Anmar warehouse facility in Riyadh" loading="lazy">
+          </div>
+          <div class="hub-icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <rect x="2" y="10" width="20" height="12" rx="1"/>
+              <path d="M6 10V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4"/>
+              <line x1="12" y1="14" x2="12" y2="18"/>
+              <line x1="10" y1="16" x2="14" y2="16"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Right: features -->
+        <div class="hub-features">
+          <div class="hub-feature">
+            <div class="hub-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="10" r="3"/>
+                <path d="M12 2a8 8 0 0 1 8 8c0 5.25-8 14-8 14S4 15.25 4 10a8 8 0 0 1 8-8z"/>
+              </svg>
+            </div>
+            <div class="hub-feature-text">
+              <h3>Strategic Location</h3>
+              <p>Centrally located to optimize delivery routes across the region.</p>
+            </div>
+          </div>
+          <div class="hub-feature">
+            <div class="hub-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </div>
+            <div class="hub-feature-text">
+              <h3>Operational Efficiency</h3>
+              <p>Streamlined processes to reduce lead times and costs.</p>
+            </div>
+          </div>
+          <div class="hub-feature">
+            <div class="hub-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+                <path d="M6 8h4M6 11h3"/>
+                <circle cx="16" cy="9" r="2"/>
+              </svg>
+            </div>
+            <div class="hub-feature-text">
+              <h3>Scalable Solutions</h3>
+              <p>Built to grow with your business and seasonal demands.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section alt line testimonial-section">
+      <div class="container">
+        <div class="section-title center">
+          <span class="section-kicker">Client Testimonials</span>
+          <h2>Trusted by growing supply chains</h2>
+        </div>
+        <div class="testimonials" style="margin-top: 34px;">
+          <article class="testimonial">
+            <div class="quote-mark">"</div>
+            <p>"Anmar helped us centralize storage and improve dispatch planning without adding complexity to our team."</p>
+            <div class="person"><span class="avatar">A</span><span><strong>Ahmed Al-Farsi</strong><span>Logistics Director</span></span></div>
+          </article>
+          <article class="testimonial">
+            <div class="quote-mark">"</div>
+            <p>"Reliable food-grade storage and clear communication made our seasonal capacity planning much easier."</p>
+            <div class="person"><span class="avatar">S</span><span><strong>Sarah Mansour</strong><span>Operations Manager</span></span></div>
+          </article>
+          <article class="testimonial">
+            <div class="quote-mark">"</div>
+            <p>"Their sites give us the security and clean presentation we need for high-value cosmetics inventory."</p>
+            <div class="person"><span class="avatar">O</span><span><strong>Omar Tariq</strong><span>Supply Chain VP</span></span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section insights">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-title">
+            <span class="section-kicker">News & Insights</span>
+            <h2>Practical notes from the warehouse floor</h2>
+          </div>
+          <a class="text-link" href="#">View All Articles <span aria-hidden="true">-></span></a>
+        </div>
+        <div class="articles">
+          <article class="article">
+            <div class="article-image" role="img" aria-label="Warehouse exterior at sunset"></div>
+            <div class="article-body">
+              <span class="tag">Industry Trends</span>
+              <h3>Cold chain logistics in Saudi Arabia</h3>
+              <p>How climate-aware storage supports sensitive products across growing regional markets.</p>
+              <a class="text-link" href="#">Read More <span aria-hidden="true">-></span></a>
+            </div>
+          </article>
+          <article class="article">
+            <div class="article-image" role="img" aria-label="Warehouse security and loading dock"></div>
+            <div class="article-body">
+              <span class="tag">Best Practices</span>
+              <h3>Keeping high-value goods secure</h3>
+              <p>Access control, monitoring, and operational discipline for premium storage facilities.</p>
+              <a class="text-link" href="#">Read More <span aria-hidden="true">-></span></a>
+            </div>
+          </article>
+          <article class="article">
+            <div class="article-image" role="img" aria-label="Modern logistics warehouse"></div>
+            <div class="article-body">
+              <span class="tag">Company News</span>
+              <h3>Expanding capacity in Dammam</h3>
+              <p>A new eastern hub helps connect industrial clients to faster regional distribution.</p>
+              <a class="text-link" href="#">Read More <span aria-hidden="true">-></span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt faq-section">
+      <div class="container">
+        <div class="faq-grid">
+
+        <!-- Left dark panel -->
+        <div class="faq-panel">
+          <span class="section-kicker">FAQ</span>
+          <h2>Questions serious buyers ask first</h2>
+          <div class="faq-panel-line"></div>
+          <p>Find quick answers to common questions about our storage and handling services.</p>
+          <!-- Decorative dot grid -->
+          <div class="faq-dots" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <!-- Right accordion list -->
+        <div class="faq-list">
+
+          <div class="faq-item open" id="faq1">
+            <button class="faq-trigger" aria-expanded="true" aria-controls="faq1-answer" onclick="toggleFaq(this)">
+              <span class="faq-icon-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 2C8 2 5 5.5 5 9c0 5 7 13 7 13s7-8 7-13c0-3.5-3-7-7-7z"/>
+                  <circle cx="12" cy="9" r="2.5"/>
+                </svg>
+              </span>
+              <span class="faq-trigger-label">Can you support cold chain and frozen inventory?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+            <div class="faq-answer" id="faq1-answer" role="region">
+              <p>Yes. Our Riyadh facility supports dry, ambient, chilled, and frozen storage requirements. Temperature needs are captured during the quote process so we match you to the right zone.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq2">
+            <button class="faq-trigger" aria-expanded="false" aria-controls="faq2-answer" onclick="toggleFaq(this)">
+              <span class="faq-icon-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="2" y="7" width="20" height="14" rx="2"/>
+                  <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+                  <line x1="12" y1="12" x2="12" y2="16"/>
+                  <line x1="10" y1="14" x2="14" y2="14"/>
+                </svg>
+              </span>
+              <span class="faq-trigger-label">Do you handle short-term overflow storage?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+            <div class="faq-answer" id="faq2-answer" role="region">
+              <p>Yes. We offer flexible contracts for monthly overflow, seasonal demand peaks, new product launches, and longer-term warehouse requirements. No long commitments required to start.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq3">
+            <button class="faq-trigger" aria-expanded="false" aria-controls="faq3-answer" onclick="toggleFaq(this)">
+              <span class="faq-icon-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="12" cy="10" r="3"/>
+                  <path d="M12 2a8 8 0 0 1 8 8c0 5.25-8 14-8 14S4 15.25 4 10a8 8 0 0 1 8-8z"/>
+                </svg>
+              </span>
+              <span class="faq-trigger-label">Which cities are covered?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+            <div class="faq-answer" id="faq3-answer" role="region">
+              <p>We currently operate from our premier facility in Riyadh, strategically positioned for efficient KSA-wide distribution. This focused operation ensures the highest quality of service.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq4">
+            <button class="faq-trigger" aria-expanded="false" aria-controls="faq4-answer" onclick="toggleFaq(this)">
+              <span class="faq-icon-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+                  <rect x="9" y="3" width="6" height="4" rx="1"/>
+                  <path d="M9 12h6M9 16h4"/>
+                </svg>
+              </span>
+              <span class="faq-trigger-label">Can inventory be managed by FIFO or FEFO?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+            <div class="faq-answer" id="faq4-answer" role="region">
+              <p>Yes. FIFO and FEFO rotation are core inventory-control capabilities for sensitive, perishable, and date-driven goods. Our team applies the correct method based on your product requirements.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" style="padding-top: 0;">
+      <div class="container cta">
+        <div>
+          <h2>Ready to find the right warehouse?</h2>
+          <p>Send your product category, city, and capacity needs. We will map the best available storage option for your operation.</p>
+        </div>
+        <a class="btn" href="#quote">Start Your Quote <span aria-hidden="true">-></span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="#top">
+          <img class="brand-logo" src="assets/anmar-logo-transparent.png" alt="Anmar Al Yasmin Logistics Company">
+        </a>
+        <p>Professional warehouse rental and logistics support for Saudi businesses that need reliable space and responsive service.</p>
+      </div>
+      <div>
+        <h4>Solutions</h4>
+        <div class="footer-links"><a href="#">Medical Storage</a><a href="#">Food Storage</a><a href="#">Cosmetics Storage</a><a href="#">Dry Storage</a></div>
+      </div>
+      <div>
+        <h4>Location</h4>
+        <div class="footer-links"><a href="#">Riyadh</a></div>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <div class="footer-links"><a href="#">About Us</a><a href="#">Facilities</a><a href="#">Sustainability</a><a href="#">Careers</a></div>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <div class="footer-links"><a href="tel:+966123456789">+966 12 345 6789</a><a href="mailto:info@anmarlogistics.com">info@anmarlogistics.com</a><a href="#">Riyadh, Saudi Arabia</a></div>
+      </div>
+    </div>
+    <div class="copyright">
+      <div class="container">2026 Anmar Logistics. All rights reserved.</div>
+    </div>
+  </footer>
+  <a class="btn floating-wa" href="https://wa.me/966123456789">WhatsApp Us</a>
+  <script>
+    const menuButton = document.querySelector(".menu-btn");
+    const mobilePanel = document.getElementById("mobilePanel");
+    menuButton.addEventListener("click", () => {
+      const isOpen = mobilePanel.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    mobilePanel.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobilePanel.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    const quoteForm = document.getElementById("quoteForm");
+    const quoteResult = document.getElementById("quoteResult");
+    const profiles = {
+      Medical: "temperature-controlled medical or pharma-ready storage with FIFO/FEFO stock handling",
+      Food: "hygienic dry, chilled, or frozen food storage with route planning support",
+      Cosmetics: "clean ambient storage for high-value cosmetics, skincare, and perfumes",
+      Retail: "flexible retail and e-commerce storage with fulfillment-ready handling"
+    };
+
+    quoteForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (!quoteForm.checkValidity()) {
+        quoteForm.reportValidity();
+        return;
+      }
+
+      const data = new FormData(quoteForm);
+      const category = data.get("category");
+      const city = data.get("city");
+      const requirement = data.get("requirement");
+      quoteResult.textContent = `Recommended profile: ${profiles[category] || "flexible warehouse storage"} in ${city}. Capacity request noted as "${requirement}". Our team can respond with availability, storage zone, and indicative pricing.`;
+      quoteResult.classList.add("show");
+    });
+
+    const floatingWa = document.querySelector(".floating-wa");
+    const updateFloatingWa = () => {
+      floatingWa.classList.toggle("visible", window.scrollY > 520);
+    };
+    updateFloatingWa();
+    window.addEventListener("scroll", updateFloatingWa, { passive: true });
+
+    // Slider Logic
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    const prevBtn = document.querySelector('.slider-arrow.prev');
+    const nextBtn = document.querySelector('.slider-arrow.next');
+    let currentSlide = 0;
+    let slideInterval;
+
+    function goToSlide(index) {
+      if(!slides.length) return;
+      slides[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.remove('active');
+      currentSlide = (index + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+
+    function nextSlide() { goToSlide(currentSlide + 1); }
+    function prevSlide() { goToSlide(currentSlide - 1); }
+
+    function startSlider() {
+      if(!slides.length) return;
+      slideInterval = setInterval(nextSlide, 6000);
+    }
+    function resetSlider() {
+      clearInterval(slideInterval);
+      startSlider();
+    }
+
+    if(nextBtn) {
+      nextBtn.addEventListener('click', () => { nextSlide(); resetSlider(); });
+      prevBtn.addEventListener('click', () => { prevSlide(); resetSlider(); });
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          goToSlide(index);
+          resetSlider();
+        });
+      });
+      startSlider();
+    }
+
+    // FAQ Accordion
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+
+      // Close all open items
+      document.querySelectorAll('.faq-item.open').forEach(openItem => {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+      });
+
+      // If it was closed, open this one
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+  </script>
+</body>
+</html>
