@@ -12,6 +12,7 @@
   const formEl = document.querySelector("[data-form-leads]");
   const endpointStatus = document.querySelector("[data-endpoint-status]");
   const endpointHelp = document.querySelector("[data-endpoint-help]");
+  const centralDashboard = document.querySelector("[data-central-dashboard]");
 
   function readLeads(key, type) {
     try {
@@ -83,24 +84,29 @@
     chatbotEl.textContent = String(chatbotCount);
     formEl.textContent = String(formCount);
 
-    endpointStatus.textContent = endpoint ? "Sheet/email connected" : "Sheet/email not connected";
+    endpointStatus.textContent = endpoint ? "Endpoint configured" : "Endpoint missing";
     endpointHelp.textContent = endpoint
-      ? "Website leads are being posted to the configured Google Apps Script endpoint."
-      : "Current config endpoint is empty, so email and Google Sheet delivery are not active yet.";
+      ? "The website can post to Apps Script. This page still shows browser-saved leads only, so verify shared records in Google Sheets."
+      : "Add the Google Apps Script Web App URL in assets/chatbot-config.js to enable Sheet and email delivery.";
+
+    if (centralDashboard) {
+      centralDashboard.href = endpoint || "#";
+      centralDashboard.hidden = !endpoint;
+    }
 
     const visible = filteredLeads();
     table.innerHTML = visible.map((lead) => `
       <tr>
         <td>${escapeHtml(formatDate(lead.submittedAt))}</td>
-        <td><strong>${escapeHtml(lead.leadType)}</strong><br>${escapeHtml(lead.source)}</td>
-        <td><strong>${escapeHtml(lead.name)}</strong></td>
+        <td><span class="source-pill">${escapeHtml(lead.leadType)}</span><span class="lead-source">${escapeHtml(lead.source)}</span></td>
+        <td><span class="lead-name">${escapeHtml(lead.name || "Website visitor")}</span></td>
         <td>${escapeHtml(lead.phone)}</td>
         <td>${escapeHtml(lead.company)}</td>
         <td>${escapeHtml(lead.storage)}</td>
         <td>${escapeHtml(lead.city)}</td>
         <td>${escapeHtml(lead.volume)}</td>
-        <td>${escapeHtml(lead.message)}</td>
-        <td>${lead.page ? `<a class="link" href="${escapeHtml(lead.page)}" target="_blank" rel="noopener">Open</a>` : ""}</td>
+        <td class="message-cell">${escapeHtml(lead.message)}</td>
+        <td>${lead.page ? `<a class="link" href="${escapeHtml(lead.page)}" target="_blank" rel="noopener">View</a>` : ""}</td>
       </tr>
     `).join("");
 

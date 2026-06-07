@@ -10,47 +10,48 @@
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/pages.css">
   <style>
-    body { background: #eef5fb; }
-    .dashboard-shell { min-height: 100vh; padding: 28px 0 54px; }
+    body { background: #f4f7fb; }
+    .dashboard-shell { min-height: 100vh; padding: 22px 0 42px; }
     .dashboard-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      margin-bottom: 26px;
+      margin-bottom: 20px;
     }
     .dashboard-logo {
-      width: 190px;
+      width: 154px;
       padding: 8px 10px;
       border-radius: 8px;
       background: #fff;
-      box-shadow: 0 10px 26px rgba(8,38,74,0.08);
+      border: 1px solid rgba(8,38,74,0.12);
     }
     .dashboard-title { display: grid; gap: 8px; }
-    .dashboard-title h1 { margin: 0; color: var(--ink); font-size: clamp(32px, 4vw, 48px); }
+    .dashboard-title h1 { margin: 0; color: var(--ink); font-size: clamp(28px, 3vw, 38px); }
     .dashboard-title p { margin: 0; color: var(--muted); }
+    .header-actions { display: flex; gap: 10px; align-items: center; }
     .status-bar {
       display: grid;
-      grid-template-columns: 1.2fr repeat(3, 0.7fr);
+      grid-template-columns: 1.25fr repeat(3, 0.55fr);
       gap: 14px;
-      margin: 24px 0;
+      margin: 20px 0;
     }
     .dash-card {
       border: 1px solid rgba(8,38,74,0.14);
       border-radius: 10px;
       background: #fff;
-      padding: 18px;
-      box-shadow: var(--shadow);
+      padding: 16px;
+      box-shadow: 0 10px 28px rgba(8,38,74,0.07);
     }
     .dash-card strong {
       display: block;
       color: var(--ink);
-      font-size: 28px;
+      font-size: 26px;
       line-height: 1;
     }
-    .dash-card span { display: block; margin-top: 8px; color: var(--muted); font-size: 13px; font-weight: 800; }
+    .dash-card span { display: block; margin-top: 8px; color: var(--muted); font-size: 12px; font-weight: 800; }
     .connection-card { background: linear-gradient(135deg, var(--navy-dark), var(--navy)); color: #fff; }
-    .connection-card strong { color: #fff; font-size: 18px; }
+    .connection-card strong { color: #fff; font-size: 16px; }
     .connection-card span { color: #dbe8f4; line-height: 1.5; }
     .dashboard-actions {
       display: flex;
@@ -58,7 +59,7 @@
       gap: 10px;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .filters {
       display: flex;
@@ -67,24 +68,24 @@
     }
     .filters input,
     .filters select {
-      min-height: 42px;
+      min-height: 40px;
       border: 1px solid var(--line);
       border-radius: 6px;
       padding: 9px 11px;
       background: #fff;
       color: var(--ink);
+      font-size: 14px;
     }
     .table-wrap {
       overflow: auto;
       border: 1px solid rgba(8,38,74,0.14);
       border-radius: 10px;
       background: #fff;
-      box-shadow: var(--shadow);
     }
-    table { width: 100%; border-collapse: collapse; min-width: 960px; }
+    table { width: 100%; border-collapse: collapse; min-width: 1040px; }
     th, td {
       border-bottom: 1px solid rgba(8,38,74,0.1);
-      padding: 13px 14px;
+      padding: 12px 14px;
       text-align: left;
       vertical-align: top;
       font-size: 13px;
@@ -101,19 +102,42 @@
     }
     td { color: var(--muted); }
     td strong { color: var(--ink); }
+    .source-pill {
+      display: inline-flex;
+      min-width: 76px;
+      justify-content: center;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: #e8f1fa;
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: capitalize;
+    }
+    .lead-name { display: block; color: var(--ink); font-size: 14px; font-weight: 900; }
+    .lead-source { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; line-height: 1.35; }
+    .message-cell { max-width: 260px; line-height: 1.45; }
     .empty-state { padding: 34px; text-align: center; color: var(--muted); }
     .note {
-      margin-top: 18px;
+      margin-top: 14px;
       padding: 16px;
-      border: 1px solid rgba(216,180,106,0.34);
+      border: 1px solid rgba(8,38,74,0.12);
       border-radius: 10px;
-      background: #fff8e6;
-      color: #6d501d;
-      font-weight: 800;
+      background: #f7fbff;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .note strong { color: var(--ink); }
+    .btn.small {
+      min-height: 40px;
+      padding: 9px 14px;
+      font-size: 13px;
     }
     @media (max-width: 900px) {
       .dashboard-header { display: grid; }
       .status-bar { grid-template-columns: 1fr 1fr; }
+      .header-actions { flex-wrap: wrap; }
     }
     @media (max-width: 620px) {
       .status-bar { grid-template-columns: 1fr; }
@@ -132,9 +156,12 @@
         </a>
         <div class="dashboard-title">
           <h1>Leads dashboard</h1>
-          <p>View website leads saved in this browser, export them, and confirm whether central Sheet/email delivery is connected.</p>
+          <p>Review local browser leads, export CSV, and open the central Google Apps Script dashboard.</p>
         </div>
-        <a class="btn light" href="index.html">Back to site</a>
+        <div class="header-actions">
+          <a class="btn light small" data-central-dashboard href="#" target="_blank" rel="noopener" hidden>Central dashboard</a>
+          <a class="btn light small" href="index.html">Back to site</a>
+        </div>
       </div>
 
       <section class="status-bar" aria-label="Lead summary">
@@ -161,8 +188,8 @@
             </select>
           </div>
           <div class="filters">
-            <button class="btn light" type="button" data-export>Export CSV</button>
-            <button class="btn" type="button" data-refresh>Refresh</button>
+            <button class="btn light small" type="button" data-export>Export CSV</button>
+            <button class="btn small" type="button" data-refresh>Refresh</button>
           </div>
         </div>
 
@@ -188,7 +215,7 @@
         </div>
 
         <div class="note">
-          This dashboard shows leads saved in the current browser. For a central team dashboard, deploy the Google Apps Script in <code>chatbot-google-apps-script.gs</code>, connect its Web App URL in <code>assets/chatbot-config.js</code>, and use the Google Sheet as the live shared dashboard.
+          <strong>Note:</strong> this page shows leads saved in this browser only. The real shared records should appear in Google Sheets through the deployed Apps Script. If leads appear here but not in the Sheet, redeploy the Apps Script as a new version with access set to <strong>Anyone</strong>, then confirm the Sheet ID in <code>chatbot-google-apps-script.gs</code>.
         </div>
       </section>
     </div>
