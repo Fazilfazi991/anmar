@@ -222,6 +222,41 @@ button, input, select, textarea { font: inherit; }
   background: var(--accent);
 }
 
+.offer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  width: fit-content;
+  padding: 9px 14px;
+  border: 1px solid rgba(216,180,106,0.52);
+  border-radius: 999px;
+  background: rgba(216,180,106,0.14);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.offer-pill::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 6px rgba(216,180,106,0.15);
+}
+
+.offer-note {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border: 1px solid rgba(216,180,106,0.34);
+  border-radius: 10px;
+  background: #fff8e6;
+  color: #6d501d;
+  font-weight: 800;
+}
+
 h1, h2, h3 {
   margin: 0;
   font-family: "Hanken Grotesk", Inter, sans-serif;

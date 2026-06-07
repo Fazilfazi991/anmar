@@ -35,7 +35,7 @@
   widget.innerHTML = `
     <div class="lead-chat__panel">
       <div class="lead-chat__head">
-        <div><strong>Storage Quote Assistant</strong><span>Share details for a faster warehouse quote</span></div>
+        <div><strong>Free Operation Offer</strong><span>Share details to check storage offer eligibility</span></div>
         <button class="lead-chat__close" type="button" aria-label="Close chat">&times;</button>
       </div>
       <form class="lead-chat__body">
@@ -77,8 +77,8 @@
     backBtn.hidden = step === 0;
     nextBtn.textContent = step === questions.length - 1 ? "Send request" : "Next";
     bubble.textContent = step === 0
-      ? "Hi. What warehouse storage do you need?"
-      : "Thanks. This detail helps us match the right storage option.";
+      ? "Hi. What storage do you need for the free operation offer?"
+      : "Thanks. This helps us match the right storage option and offer eligibility.";
 
     const value = answers[q.name] || "";
     let field = "";
@@ -108,7 +108,7 @@
     const payload = {
       ...answers,
       page: window.location.href,
-      source: "Anmar website chatbot",
+      source: "Anmar website chatbot - free operation offer",
       submittedAt: new Date().toISOString()
     };
 
