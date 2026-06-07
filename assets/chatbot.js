@@ -127,12 +127,15 @@
       });
     }
 
-    const summary = encodeURIComponent(
-      `New storage request from ${payload.name || "website visitor"}%0A` +
-      `Phone: ${payload.phone || ""}%0ACompany: ${payload.company || ""}%0A` +
-      `Storage: ${payload.storage || ""}%0ACity: ${payload.city || ""}%0A` +
-      `Volume: ${payload.volume || ""}%0AMessage: ${payload.message || ""}`
-    );
+    const summaryLines = [
+      `Hi Anmar Logistics team, my name is ${payload.name || "a website visitor"}.`,
+      `I have an enquiry for ${payload.storage || "warehouse storage"}${payload.city ? ` in ${payload.city}` : ""}.`,
+      payload.company ? `Company: ${payload.company}` : "",
+      payload.volume ? `Capacity / volume: ${payload.volume}` : "",
+      payload.message ? `Requirement notes: ${payload.message}` : "",
+      payload.phone ? `Please contact me on: ${payload.phone}` : ""
+    ].filter(Boolean);
+    const summary = encodeURIComponent(summaryLines.join("\n"));
 
     slot.innerHTML = `<div class="lead-chat__success">
       <strong>Thanks, request received.</strong>
