@@ -43,7 +43,7 @@ To save chatbot and contact-form leads to Google Sheets and send email to `opera
 2. Copy the spreadsheet ID from the Sheet URL.
 3. Open Google Apps Script.
 4. Paste the code from `chatbot-google-apps-script.gs`.
-5. Replace `PASTE_GOOGLE_SHEET_ID_HERE` with the Sheet ID.
+5. Confirm the `SHEET_ID` value matches your Google Sheet ID: `1_GxlC_e1Ra00R60-Oq1K9BclMhMX5iFzQRH4AHCWXTw`.
 6. Deploy the script as a Web App.
 7. Set access to `Anyone`.
 8. Copy the Web App URL.
