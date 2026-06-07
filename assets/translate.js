@@ -3,26 +3,43 @@
   const EN_VALUE = "/en/en";
   const AR_VALUE = "/en/ar";
 
+  function cookieDomains() {
+    const host = window.location.hostname;
+    const domains = [""];
+
+    if (host && host !== "localhost") {
+      domains.push(host, `.${host}`);
+
+      const parts = host.split(".");
+      for (let index = 1; index < parts.length - 1; index += 1) {
+        domains.push(`.${parts.slice(index).join(".")}`);
+      }
+    }
+
+    return Array.from(new Set(domains));
+  }
+
+  function writeCookie(value, maxAge) {
+    cookieDomains().forEach((domain) => {
+      const domainPart = domain ? `;domain=${domain}` : "";
+      document.cookie = `${COOKIE_NAME}=${value};path=/;max-age=${maxAge}${domainPart}`;
+    });
+  }
+
   function setTranslateCookie(value) {
     const maxAge = 60 * 60 * 24 * 365;
-    document.cookie = `${COOKIE_NAME}=${value};path=/;max-age=${maxAge}`;
-
-    const host = window.location.hostname;
-    if (host && host.includes(".")) {
-      document.cookie = `${COOKIE_NAME}=${value};domain=.${host};path=/;max-age=${maxAge}`;
-    }
+    clearTranslateCookie();
+    writeCookie(value, maxAge);
   }
 
   function clearTranslateCookie() {
-    document.cookie = `${COOKIE_NAME}=;path=/;max-age=0`;
-
-    const host = window.location.hostname;
-    if (host && host.includes(".")) {
-      document.cookie = `${COOKIE_NAME}=;domain=.${host};path=/;max-age=0`;
-    }
+    writeCookie("", 0);
   }
 
   function activeLanguage() {
+    const storedLanguage = localStorage.getItem("anmarLanguage");
+    if (storedLanguage === "ar" || storedLanguage === "en") return storedLanguage;
+
     const cookie = decodeURIComponent(document.cookie || "");
     return cookie.includes(`${COOKIE_NAME}=${AR_VALUE}`) ? "ar" : "en";
   }
@@ -34,6 +51,8 @@
       const isActive = button.dataset.translate === language;
       button.classList.toggle("active", isActive);
       button.setAttribute("aria-pressed", String(isActive));
+      button.closest(".language-toggle")?.classList.add("notranslate");
+      button.closest(".language-toggle")?.setAttribute("translate", "no");
     });
   }
 
@@ -63,6 +82,7 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     const language = activeLanguage();
+    setTranslateCookie(language === "ar" ? AR_VALUE : EN_VALUE);
     syncControls(language);
     loadGoogleTranslate();
 
@@ -75,7 +95,6 @@
           setTranslateCookie(AR_VALUE);
           localStorage.setItem("anmarLanguage", "ar");
         } else {
-          clearTranslateCookie();
           setTranslateCookie(EN_VALUE);
           localStorage.setItem("anmarLanguage", "en");
         }

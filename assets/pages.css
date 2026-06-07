@@ -105,6 +105,7 @@ button, input, select, textarea { font: inherit; }
   display: inline-flex;
   align-items: center;
   gap: 2px;
+  direction: ltr;
   padding: 3px;
   border: 1px solid rgba(8, 38, 74, 0.14);
   border-radius: 999px;
@@ -113,7 +114,7 @@ button, input, select, textarea { font: inherit; }
 }
 
 .lang-btn {
-  min-width: 42px;
+  min-width: 72px;
   min-height: 32px;
   border: 0;
   border-radius: 999px;
