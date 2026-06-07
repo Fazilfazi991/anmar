@@ -5,7 +5,7 @@
 
   const questions = [
     { name: "storage", label: "Storage need", type: "select", options: ["Medical storage", "Food storage", "Cosmetics storage", "Cold storage", "Dry storage", "3PL support"], required: true },
-    { name: "city", label: "Preferred city", type: "select", options: ["Riyadh", "Jeddah", "Dammam", "Madinah", "Not sure yet"], required: true },
+    { name: "city", label: "Preferred city", type: "select", options: ["Riyadh", "Jeddah", "Dammam", "Not sure yet"], required: true },
     { name: "volume", label: "Capacity needed", type: "text", placeholder: "Pallets, sqm, cartons, or monthly volume" },
     { name: "message", label: "Anything important?", type: "textarea", placeholder: "Temperature, start date, product type, special handling..." },
     { name: "name", label: "Your name", type: "text", placeholder: "Full name", required: true },
