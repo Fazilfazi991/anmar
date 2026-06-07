@@ -73,6 +73,7 @@
 
   function renderStep() {
     const q = questions[step];
+    bubble.classList.remove("is-success");
     status.textContent = "";
     backBtn.hidden = step === 0;
     nextBtn.textContent = step === questions.length - 1 ? "Send request" : "Next";
@@ -122,7 +123,6 @@
       await fetch(endpoint, {
         method: "POST",
         mode: "no-cors",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify(payload)
       });
     }
@@ -134,9 +134,13 @@
       `Volume: ${payload.volume || ""}%0AMessage: ${payload.message || ""}`
     );
 
-    slot.innerHTML = `<div class="lead-chat__bubble">Thanks. Your request is saved and our team will review it shortly.</div>
-      <a class="lead-chat__btn" href="https://wa.me/${whatsapp}?text=${summary}" target="_blank" rel="noopener">Continue on WhatsApp</a>`;
+    slot.innerHTML = `<div class="lead-chat__success">
+      <strong>Thanks, request received.</strong>
+      <p>Our operations team will review your storage details and follow up shortly.</p>
+      <a class="lead-chat__btn" href="https://wa.me/${whatsapp}?text=${summary}" target="_blank" rel="noopener">Continue on WhatsApp</a>
+    </div>`;
     bubble.textContent = "Request received.";
+    bubble.classList.add("is-success");
     status.textContent = endpoint ? "Lead sent to the connected sheet/email workflow." : "Webhook is not connected yet; lead is saved in browser storage.";
     backBtn.hidden = true;
     nextBtn.textContent = "Close";
