@@ -4,13 +4,13 @@
   const whatsapp = config.whatsapp || "966598626402";
 
   const questions = [
-    { name: "name", label: "Your name", type: "text", placeholder: "Full name", required: true },
-    { name: "phone", label: "Phone / WhatsApp", type: "tel", placeholder: "+966 ...", required: true },
-    { name: "company", label: "Company", type: "text", placeholder: "Company name" },
     { name: "storage", label: "Storage need", type: "select", options: ["Medical storage", "Food storage", "Cosmetics storage", "Cold storage", "Dry storage", "3PL support"], required: true },
     { name: "city", label: "Preferred city", type: "select", options: ["Riyadh", "Jeddah", "Dammam", "Madinah", "Not sure yet"], required: true },
     { name: "volume", label: "Capacity needed", type: "text", placeholder: "Pallets, sqm, cartons, or monthly volume" },
-    { name: "message", label: "Anything important?", type: "textarea", placeholder: "Temperature, start date, product type, special handling..." }
+    { name: "message", label: "Anything important?", type: "textarea", placeholder: "Temperature, start date, product type, special handling..." },
+    { name: "name", label: "Your name", type: "text", placeholder: "Full name", required: true },
+    { name: "phone", label: "Phone / WhatsApp", type: "tel", placeholder: "+966 ...", required: true },
+    { name: "company", label: "Company", type: "text", placeholder: "Company name" }
   ];
 
   let step = 0;
@@ -76,9 +76,13 @@
     status.textContent = "";
     backBtn.hidden = step === 0;
     nextBtn.textContent = step === questions.length - 1 ? "Send request" : "Next";
-    bubble.textContent = step === 0
-      ? "Hi. What storage do you need for the free operation offer?"
-      : "Thanks. This helps us match the right storage option and offer eligibility.";
+    if (step === 0) {
+      bubble.textContent = "Hi. Tell us your storage requirement first so we can check the free operation offer.";
+    } else if (["name", "phone", "company"].includes(q.name)) {
+      bubble.textContent = "Great. Now share your contact details so our team can follow up with the best option.";
+    } else {
+      bubble.textContent = "Thanks. This helps us match the right storage option and offer eligibility.";
+    }
 
     const value = answers[q.name] || "";
     let field = "";
