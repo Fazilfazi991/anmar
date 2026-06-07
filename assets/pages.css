@@ -101,6 +101,49 @@ button, input, select, textarea { font: inherit; }
 
 .phone { color: var(--muted); font-size: 14px; font-weight: 600; }
 
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid rgba(8, 38, 74, 0.14);
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(8, 38, 74, 0.08);
+}
+
+.lang-btn {
+  min-width: 42px;
+  min-height: 32px;
+  border: 0;
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.lang-btn.active {
+  background: var(--navy);
+  color: #fff;
+}
+
+.mobile-language {
+  width: fit-content;
+  margin-top: 4px;
+}
+
+#anmar_translate_element,
+.goog-te-banner-frame,
+.goog-te-balloon-frame,
+body > .skiptranslate {
+  display: none !important;
+}
+
+body { top: 0 !important; }
+
 .btn {
   min-height: 46px;
   border: 1px solid transparent;

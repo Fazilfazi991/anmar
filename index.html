@@ -166,6 +166,49 @@
       white-space: nowrap;
     }
 
+    .language-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      padding: 3px;
+      border: 1px solid rgba(8, 38, 74, 0.14);
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: 0 8px 22px rgba(8, 38, 74, 0.08);
+    }
+
+    .lang-btn {
+      min-width: 42px;
+      min-height: 32px;
+      border: 0;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: transparent;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .lang-btn.active {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .mobile-language {
+      width: fit-content;
+      margin-top: 4px;
+    }
+
+    #anmar_translate_element,
+    .goog-te-banner-frame,
+    .goog-te-balloon-frame,
+    body > .skiptranslate {
+      display: none !important;
+    }
+
+    body { top: 0 !important; }
+
     .phone {
       display: inline-flex;
       align-items: center;
@@ -1528,7 +1571,7 @@
         <a href="about.html">Why Us</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <div class="nav-actions">
+      <div class="nav-actions"><div class="language-toggle" aria-label="Language selector"><button class="lang-btn active" type="button" data-translate="en" aria-pressed="true">EN</button><button class="lang-btn" type="button" data-translate="ar" aria-pressed="false">&#1593;&#1585;&#1576;&#1610;</button></div>
         <a class="phone" href="tel:+966598626402">+966 598 626 402</a>
         <a class="icon-btn" href="https://wa.me/966598626402" aria-label="WhatsApp">WA</a>
       <a class="btn" href="contact.html">Claim Free Operation <span aria-hidden="true">-></span></a>
@@ -1547,7 +1590,7 @@
         <a href="locations.html">Locations</a>
         <a href="about.html">Why Us</a>
         <a href="contact.html">Contact</a>
-        <a href="contact.html">Claim Free Operation</a>
+        <a href="contact.html">Claim Free Operation</a><div class="language-toggle mobile-language" aria-label="Language selector"><button class="lang-btn active" type="button" data-translate="en" aria-pressed="true">EN</button><button class="lang-btn" type="button" data-translate="ar" aria-pressed="false">&#1593;&#1585;&#1576;&#1610;</button></div>
       </div>
     </nav>
   </header>
@@ -2167,7 +2210,7 @@
       }
     }
   </script>
-  <script src="assets/chatbot-config.js"></script>
+  <script src="assets/translate.js"></script><script src="assets/chatbot-config.js"></script>
   <script src="assets/chatbot.js"></script>
 </body>
 </html>
