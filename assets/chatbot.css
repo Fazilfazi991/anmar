@@ -1,7 +1,7 @@
 .lead-chat {
   position: fixed;
-  right: 22px;
-  bottom: 86px;
+  right: 20px;
+  bottom: 158px;
   z-index: 60;
   width: min(380px, calc(100vw - 28px));
   color: #071d3a;
@@ -118,11 +118,11 @@
 
 .lead-chat__launcher {
   position: fixed;
-  right: 22px;
-  bottom: 84px;
+  right: 20px;
+  bottom: 92px;
   z-index: 59;
-  width: 56px;
-  height: 56px;
+  width: 58px;
+  height: 58px;
   border: 0;
   border-radius: 50%;
   display: grid;
@@ -155,12 +155,12 @@
   .lead-chat {
     right: 12px;
     left: 12px;
-    bottom: 76px;
+    bottom: 150px;
     width: auto;
   }
 
   .lead-chat__launcher {
     right: 12px;
-    bottom: 76px;
+    bottom: 82px;
   }
 }

@@ -177,5 +177,5 @@
 
   widget.querySelector(".lead-chat__close").addEventListener("click", closeWidget);
   launcher.addEventListener("click", openWidget);
-  window.setTimeout(openWidget, 5000);
+  window.setTimeout(openWidget, 10000);
 })();
