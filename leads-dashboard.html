@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Anmar Leads Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/pages.css">
+  <style>
+    body { background: #eef5fb; }
+    .dashboard-shell { min-height: 100vh; padding: 28px 0 54px; }
+    .dashboard-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+    .dashboard-logo {
+      width: 190px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 10px 26px rgba(8,38,74,0.08);
+    }
+    .dashboard-title { display: grid; gap: 8px; }
+    .dashboard-title h1 { margin: 0; color: var(--ink); font-size: clamp(32px, 4vw, 48px); }
+    .dashboard-title p { margin: 0; color: var(--muted); }
+    .status-bar {
+      display: grid;
+      grid-template-columns: 1.2fr repeat(3, 0.7fr);
+      gap: 14px;
+      margin: 24px 0;
+    }
+    .dash-card {
+      border: 1px solid rgba(8,38,74,0.14);
+      border-radius: 10px;
+      background: #fff;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .dash-card strong {
+      display: block;
+      color: var(--ink);
+      font-size: 28px;
+      line-height: 1;
+    }
+    .dash-card span { display: block; margin-top: 8px; color: var(--muted); font-size: 13px; font-weight: 800; }
+    .connection-card { background: linear-gradient(135deg, var(--navy-dark), var(--navy)); color: #fff; }
+    .connection-card strong { color: #fff; font-size: 18px; }
+    .connection-card span { color: #dbe8f4; line-height: 1.5; }
+    .dashboard-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .filters input,
+    .filters select {
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 9px 11px;
+      background: #fff;
+      color: var(--ink);
+    }
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid rgba(8,38,74,0.14);
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    table { width: 100%; border-collapse: collapse; min-width: 960px; }
+    th, td {
+      border-bottom: 1px solid rgba(8,38,74,0.1);
+      padding: 13px 14px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 13px;
+    }
+    th {
+      position: sticky;
+      top: 0;
+      background: #f7fbff;
+      color: var(--ink);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    td { color: var(--muted); }
+    td strong { color: var(--ink); }
+    .empty-state { padding: 34px; text-align: center; color: var(--muted); }
+    .note {
+      margin-top: 18px;
+      padding: 16px;
+      border: 1px solid rgba(216,180,106,0.34);
+      border-radius: 10px;
+      background: #fff8e6;
+      color: #6d501d;
+      font-weight: 800;
+    }
+    @media (max-width: 900px) {
+      .dashboard-header { display: grid; }
+      .status-bar { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 620px) {
+      .status-bar { grid-template-columns: 1fr; }
+      .dashboard-actions { display: grid; justify-content: stretch; }
+      .filters { display: grid; }
+      .filters input, .filters select, .dashboard-actions .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="dashboard-shell">
+    <div class="container">
+      <div class="dashboard-header">
+        <a class="dashboard-logo" href="index.html" aria-label="Back to Anmar home">
+          <img src="assets/anmar-logo-transparent.png" alt="Anmar Logistics">
+        </a>
+        <div class="dashboard-title">
+          <h1>Leads dashboard</h1>
+          <p>View website leads saved in this browser, export them, and confirm whether central Sheet/email delivery is connected.</p>
+        </div>
+        <a class="btn light" href="index.html">Back to site</a>
+      </div>
+
+      <section class="status-bar" aria-label="Lead summary">
+        <div class="dash-card connection-card">
+          <strong data-endpoint-status>Checking connection...</strong>
+          <span data-endpoint-help>Loading website lead configuration.</span>
+        </div>
+        <div class="dash-card"><strong data-total-leads>0</strong><span>Total local leads</span></div>
+        <div class="dash-card"><strong data-chatbot-leads>0</strong><span>Chatbot leads</span></div>
+        <div class="dash-card"><strong data-form-leads>0</strong><span>Form leads</span></div>
+      </section>
+
+      <section class="dash-card">
+        <div class="dashboard-actions">
+          <div class="filters">
+            <input data-search type="search" placeholder="Search name, phone, company, message">
+            <select data-source-filter>
+              <option value="">All sources</option>
+              <option value="chatbot">Chatbot</option>
+              <option value="form">Forms</option>
+            </select>
+            <select data-storage-filter>
+              <option value="">All storage</option>
+            </select>
+          </div>
+          <div class="filters">
+            <button class="btn light" type="button" data-export>Export CSV</button>
+            <button class="btn" type="button" data-refresh>Refresh</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Source</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Company</th>
+                <th>Storage</th>
+                <th>City</th>
+                <th>Volume</th>
+                <th>Message</th>
+                <th>Page</th>
+              </tr>
+            </thead>
+            <tbody data-leads-table></tbody>
+          </table>
+          <div class="empty-state" data-empty-state hidden>No local leads found yet.</div>
+        </div>
+
+        <div class="note">
+          This dashboard shows leads saved in the current browser. For a central team dashboard, deploy the Google Apps Script in <code>chatbot-google-apps-script.gs</code>, connect its Web App URL in <code>assets/chatbot-config.js</code>, and use the Google Sheet as the live shared dashboard.
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="assets/chatbot-config.js"></script>
+  <script src="assets/leads-dashboard.js"></script>
+</body>
+</html>
