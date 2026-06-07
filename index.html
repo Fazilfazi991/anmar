@@ -711,7 +711,7 @@
       font-weight: 700;
     }
 
-    .card p, .feature p, .testimonial p, .article p {
+    .card p, .feature p, .article p {
       margin: 0;
       color: var(--muted);
       font-size: 14px;
@@ -1028,56 +1028,18 @@
       line-height: 1.55;
     }
 
-    .testimonials, .articles {
+    .articles {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
 
-    .testimonial, .article {
+    .article {
       border: 1px solid var(--outline);
       border-radius: 8px;
       background: var(--card);
       padding: 26px;
       box-shadow: 0 8px 24px rgba(46, 49, 48, 0.04);
-    }
-
-    .quote-mark {
-      color: var(--primary);
-      font-family: Georgia, serif;
-      font-size: 42px;
-      line-height: 1;
-      opacity: 0.5;
-    }
-
-    .person {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      margin-top: 22px;
-      padding-top: 18px;
-      border-top: 1px solid var(--outline);
-    }
-
-    .avatar {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--outline);
-      border-radius: 8px;
-      background: var(--surface-low);
-      color: var(--primary);
-      font-weight: 800;
-    }
-
-    .person strong { display: block; font-size: 14px; }
-    .person span {
-      color: var(--muted);
-      font-family: "IBM Plex Sans", Inter, sans-serif;
-      font-size: 10px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
     }
 
     .article { padding: 0; overflow: hidden; }
@@ -1397,7 +1359,7 @@
       .hub-layout { grid-template-columns: 1fr 1fr; gap: 28px; }
       .hub-text { grid-column: 1 / -1; }
       .hub-image-wrap { max-width: 280px; }
-      .testimonials, .articles { grid-template-columns: repeat(2, 1fr); }
+      .articles { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 760px) {
@@ -1463,9 +1425,6 @@
       .hub-feature { padding: 16px; }
       .hub-feature-icon { width: 40px; height: 40px; }
       .hub-feature-icon svg { width: 18px; height: 18px; }
-
-      /* â€” Testimonials â€” */
-      .testimonials { grid-template-columns: 1fr; }
 
       /* â€” Articles â€” */
       .articles { grid-template-columns: 1fr; }
@@ -1891,32 +1850,6 @@
           </div>
         </div>
 
-      </div>
-    </section>
-
-    <section class="section alt line testimonial-section">
-      <div class="container">
-        <div class="section-title center">
-          <span class="section-kicker">Client Testimonials</span>
-          <h2>Trusted by growing supply chains</h2>
-        </div>
-        <div class="testimonials" style="margin-top: 34px;">
-          <article class="testimonial">
-            <div class="quote-mark">"</div>
-            <p>"Anmar helped us centralize storage and improve dispatch planning without adding complexity to our team."</p>
-            <div class="person"><span class="avatar">A</span><span><strong>Ahmed Al-Farsi</strong><span>Logistics Director</span></span></div>
-          </article>
-          <article class="testimonial">
-            <div class="quote-mark">"</div>
-            <p>"Reliable food-grade storage and clear communication made our seasonal capacity planning much easier."</p>
-            <div class="person"><span class="avatar">S</span><span><strong>Sarah Mansour</strong><span>Operations Manager</span></span></div>
-          </article>
-          <article class="testimonial">
-            <div class="quote-mark">"</div>
-            <p>"Their sites give us the security and clean presentation we need for high-value cosmetics inventory."</p>
-            <div class="person"><span class="avatar">O</span><span><strong>Omar Tariq</strong><span>Supply Chain VP</span></span></div>
-          </article>
-        </div>
       </div>
     </section>
 
