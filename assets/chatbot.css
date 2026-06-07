@@ -1,7 +1,11 @@
 .lead-chat {
+  --float-size: 64px;
+  --float-gap: 18px;
+  --float-right: 22px;
+  --float-bottom: 22px;
   position: fixed;
-  right: 20px;
-  bottom: 158px;
+  right: var(--float-right);
+  bottom: calc(var(--float-bottom) + (var(--float-size) * 2) + var(--float-gap) + 18px);
   z-index: 60;
   width: min(360px, calc(100vw - 28px));
   color: #071d3a;
@@ -155,12 +159,16 @@
 }
 
 .lead-chat__launcher {
+  --float-size: 64px;
+  --float-gap: 18px;
+  --float-right: 22px;
+  --float-bottom: 22px;
   position: fixed;
-  right: 20px;
-  bottom: 92px;
+  right: var(--float-right);
+  bottom: calc(var(--float-bottom) + var(--float-size) + var(--float-gap));
   z-index: 59;
-  width: 58px;
-  height: 58px;
+  width: var(--float-size);
+  height: var(--float-size);
   border: 0;
   border-radius: 50%;
   display: flex;
@@ -186,18 +194,22 @@
 }
 
 .lead-chat__launcher svg {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   display: block;
   flex: 0 0 auto;
-  transform: translate(2px, 1px);
+  transform: none;
 }
 
 @media (max-width: 760px) {
   .lead-chat {
-    right: 12px;
+    --float-size: 58px;
+    --float-gap: 14px;
+    --float-right: 14px;
+    --float-bottom: 16px;
+    right: var(--float-right);
     left: 12px;
-    bottom: 150px;
+    bottom: calc(var(--float-bottom) + (var(--float-size) * 2) + var(--float-gap) + 16px);
     width: auto;
   }
 
@@ -205,7 +217,11 @@
   .lead-chat__body { padding: 14px; }
 
   .lead-chat__launcher {
-    right: 12px;
-    bottom: 82px;
+    --float-size: 58px;
+    --float-gap: 14px;
+    --float-right: 14px;
+    --float-bottom: 16px;
+    right: var(--float-right);
+    bottom: calc(var(--float-bottom) + var(--float-size) + var(--float-gap));
   }
 }

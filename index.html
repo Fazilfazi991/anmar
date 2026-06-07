@@ -1276,13 +1276,16 @@
     .copyright { color: #dbe8f4; }
 
     .floating-wa {
+      --float-size: 64px;
+      --float-right: 22px;
+      --float-bottom: 22px;
       position: fixed;
-      right: 20px;
-      bottom: 20px;
+      right: var(--float-right);
+      bottom: var(--float-bottom);
       z-index: 30;
-      width: 58px;
-      height: 58px;
-      min-height: 58px;
+      width: var(--float-size);
+      height: var(--float-size);
+      min-height: var(--float-size);
       border-radius: 50%;
       padding: 0;
       display: grid;
@@ -1300,10 +1303,10 @@
 
     .floating-wa::before {
       content: "";
-      width: 31px;
-      height: 31px;
+      width: 34px;
+      height: 34px;
       display: block;
-      transform: translate(1px, 0);
+      transform: none;
       background: currentColor;
       -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16.02 3C8.86 3 3 8.85 3 16.02c0 2.29.6 4.52 1.75 6.48L3.06 29l6.67-1.75A12.92 12.92 0 0 0 16.02 29C23.16 29 29 23.15 29 16.02S23.16 3 16.02 3Zm0 23.02c-1.96 0-3.88-.53-5.55-1.53l-.4-.24-3.95 1.04 1.05-3.85-.26-.4a10.02 10.02 0 1 1 9.11 4.98Zm5.49-7.51c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.96 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49-.89-.79-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.64-.94-2.24-.25-.58-.5-.5-.68-.51h-.58c-.2 0-.53.07-.8.38-.28.3-1.05 1.03-1.05 2.51s1.08 2.91 1.23 3.11c.15.2 2.13 3.25 5.16 4.56.72.31 1.29.5 1.73.64.73.23 1.39.2 1.91.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.13-.28-.2-.58-.35Z'/%3E%3C/svg%3E") center / contain no-repeat;
       mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16.02 3C8.86 3 3 8.85 3 16.02c0 2.29.6 4.52 1.75 6.48L3.06 29l6.67-1.75A12.92 12.92 0 0 0 16.02 29C23.16 29 29 23.15 29 16.02S23.16 3 16.02 3Zm0 23.02c-1.96 0-3.88-.53-5.55-1.53l-.4-.24-3.95 1.04 1.05-3.85-.26-.4a10.02 10.02 0 1 1 9.11 4.98Zm5.49-7.51c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.96 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49-.89-.79-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.64-.94-2.24-.25-.58-.5-.5-.68-.51h-.58c-.2 0-.53.07-.8.38-.28.3-1.05 1.03-1.05 2.51s1.08 2.91 1.23 3.11c.15.2 2.13 3.25 5.16 4.56.72.31 1.29.5 1.73.64.73.23 1.39.2 1.91.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.13-.28-.2-.58-.35Z'/%3E%3C/svg%3E") center / contain no-repeat;
@@ -1461,12 +1464,15 @@
       /* â€” Footer â€” */
       .footer-grid { grid-template-columns: 1fr; gap: 28px; }
       .floating-wa {
+        --float-size: 58px;
+        --float-right: 14px;
+        --float-bottom: 16px;
         left: auto;
-        right: 12px;
-        bottom: 14px;
-        width: 58px;
-        height: 58px;
-        min-height: 58px;
+        right: var(--float-right);
+        bottom: var(--float-bottom);
+        width: var(--float-size);
+        height: var(--float-size);
+        min-height: var(--float-size);
       }
     }
 
@@ -1523,7 +1529,7 @@
     }
 
   </style>
-  <link rel="stylesheet" href="assets/chatbot.css?v=sheetfix-20260607">
+  <link rel="stylesheet" href="assets/chatbot.css?v=float-20260607">
 </head>
 <body>
 
