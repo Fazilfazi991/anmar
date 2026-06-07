@@ -129,19 +129,19 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: clamp(12px, 2vw, 24px);
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      min-width: 218px;
+      min-width: 0;
     }
 
     .brand-logo {
       display: block;
-      width: 210px;
+      width: clamp(172px, 15vw, 210px);
       max-width: 100%;
       height: 62px;
       object-fit: contain;
@@ -152,7 +152,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 26px;
+      gap: clamp(16px, 2vw, 26px);
       color: var(--muted);
       font-size: 14px;
     }
@@ -171,7 +171,7 @@
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
       white-space: nowrap;
     }
 
@@ -249,7 +249,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 12px 20px;
+      padding: 12px 18px;
       color: #fff;
       background: var(--primary);
       font-weight: 700;
@@ -1354,7 +1354,7 @@
       font-size: 12px;
     }
 
-    @media (max-width: 1040px) {
+    @media (max-width: 1120px) {
       .nav-links, .nav-actions { display: none; }
       .menu-btn { display: grid; }
       .hero-grid { grid-template-columns: 1fr; }
@@ -1541,8 +1541,6 @@
         <a href="contact.html">Contact</a>
       </nav>
       <div class="nav-actions"><div class="language-toggle notranslate" translate="no" aria-label="Language selector"><button class="lang-btn active" type="button" data-translate="en" aria-pressed="true">English</button><button class="lang-btn" type="button" data-translate="ar" aria-pressed="false">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</button></div>
-        <a class="phone" href="tel:+966598626402">+966 598 626 402</a>
-        <a class="icon-btn" href="https://wa.me/966598626402" aria-label="WhatsApp">WA</a>
       <a class="btn" href="contact.html">Claim Free Operation <span aria-hidden="true">-></span></a>
       </div>
       <button class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-expanded="false">
