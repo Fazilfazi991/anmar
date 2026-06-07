@@ -127,15 +127,15 @@
       });
     }
 
-    const summaryLines = [
+    const messageParts = [
       `Hi Anmar Logistics team, my name is ${payload.name || "a website visitor"}.`,
-      `I have an enquiry for ${payload.storage || "warehouse storage"}${payload.city ? ` in ${payload.city}` : ""}.`,
-      payload.company ? `Company: ${payload.company}` : "",
-      payload.volume ? `Capacity / volume: ${payload.volume}` : "",
-      payload.message ? `Requirement notes: ${payload.message}` : "",
-      payload.phone ? `Please contact me on: ${payload.phone}` : ""
+      `I have a requirement for ${payload.storage || "warehouse storage"}${payload.city ? ` in ${payload.city}` : ""}.`,
+      payload.company ? `My company name is ${payload.company}.` : "",
+      payload.volume ? `The required capacity or volume is ${payload.volume}.` : "",
+      payload.message ? `Additional details: ${payload.message}.` : "",
+      payload.phone ? `Please contact me on ${payload.phone}.` : "Please contact me with more details."
     ].filter(Boolean);
-    const summary = encodeURIComponent(summaryLines.join("\n"));
+    const summary = encodeURIComponent(messageParts.join(" "));
 
     slot.innerHTML = `<div class="lead-chat__success">
       <strong>Thanks, request received.</strong>
