@@ -784,6 +784,13 @@ details p {
 .field textarea { min-height: 118px; resize: vertical; }
 .field.full { grid-column: 1 / -1; }
 
+.form-status {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
 .breadcrumb {
   display: flex;
   gap: 8px;

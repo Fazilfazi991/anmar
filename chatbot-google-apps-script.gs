@@ -1,5 +1,5 @@
 const SHEET_ID = "PASTE_GOOGLE_SHEET_ID_HERE";
-const NOTIFY_EMAIL = "info@anmarlogistics.com";
+const NOTIFY_EMAIL = "operations@almrebid.sa";
 
 function doPost(e) {
   const payload = JSON.parse(e.postData.contents || "{}");
@@ -7,11 +7,12 @@ function doPost(e) {
     SpreadsheetApp.openById(SHEET_ID).insertSheet("Leads");
 
   if (sheet.getLastRow() === 0) {
-    sheet.appendRow(["Submitted At", "Name", "Phone", "Company", "Storage", "City", "Volume", "Message", "Page"]);
+    sheet.appendRow(["Submitted At", "Source", "Name", "Phone", "Company", "Storage", "City", "Volume", "Message", "Page"]);
   }
 
   sheet.appendRow([
     payload.submittedAt || new Date().toISOString(),
+    payload.source || "",
     payload.name || "",
     payload.phone || "",
     payload.company || "",
@@ -27,6 +28,7 @@ function doPost(e) {
     subject: "New Anmar Logistics website lead",
     htmlBody:
       "<h2>New website storage request</h2>" +
+      "<p><b>Source:</b> " + (payload.source || "") + "</p>" +
       "<p><b>Name:</b> " + (payload.name || "") + "</p>" +
       "<p><b>Phone:</b> " + (payload.phone || "") + "</p>" +
       "<p><b>Company:</b> " + (payload.company || "") + "</p>" +
