@@ -15,6 +15,10 @@
 - Cosmetics Storage: `assets/cosmetics-storage-generated.png`
 - Cold Storage: `assets/cold-storage-generated.png`
 - Dry Storage / 3PL: `assets/storage-3pl-generated.png`
+- Medical Storage Hero Banner: `assets/medical-storage-banner.png`
+- Food Storage Hero Banner: `assets/food-storage-banner.png`
+- Cosmetics Storage Hero Banner: `assets/cosmetics-storage-banner.png`
+- Cold Storage Hero Banner: `assets/cold-storage-banner.png`
 
 ## Prompts Used
 
@@ -32,3 +36,6 @@ Photorealistic chilled and frozen cold storage warehouse facility in Saudi Arabi
 
 ### Dry Storage / 3PL
 Photorealistic modern Saudi logistics warehouse with forklifts, pallet racks, dry storage, dispatch lanes, and organized 3PL operations, clean large warehouse interior, palletized retail and e-commerce cartons, loading preparation area, barcode scanning station, wide 16:9, navy, white, steel grey, gold safety lines, no readable brand names, no text, no watermark.
+
+### Storage Page Hero Banners
+Ultra-wide 21:9 premium commercial logistics photography for medical, food, cosmetics, and cold storage landing pages, with open negative space for website copy, category-specific warehouse details, Anmar navy and gold accents, no readable brand names, no text, and no watermark.
