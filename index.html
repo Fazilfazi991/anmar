@@ -80,7 +80,7 @@
     .mobile-panel {
       display: none;
       border-top: 1px solid var(--outline);
-      background: var(--surface);
+      background: #fff;
     }
 
     .mobile-panel.open { display: block; }
@@ -92,10 +92,17 @@
     }
 
     .mobile-panel a {
-      padding: 12px 0;
+      padding: 12px 14px;
       border-bottom: 1px solid var(--outline);
-      color: var(--muted);
-      font-weight: 700;
+      border-radius: 8px;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .mobile-panel a:hover,
+    .mobile-panel a:focus-visible {
+      background: var(--primary-soft);
+      color: var(--primary-strong);
     }
 
     .eyebrow {
@@ -229,7 +236,7 @@
     }
 
     .icon-btn {
-      width: 40px;
+      width: 44px;
       height: 40px;
       border: 0;
       border-radius: 8px;
@@ -237,11 +244,13 @@
       place-items: center;
       background: var(--primary);
       color: #fff;
+      box-shadow: 0 10px 22px rgba(8, 38, 74, 0.16);
     }
 
     .icon-btn:hover,
     .icon-btn[aria-expanded="true"] {
       background: var(--primary-strong);
+      box-shadow: 0 14px 30px rgba(8, 38, 74, 0.22);
     }
 
     .menu-btn { display: none; }
