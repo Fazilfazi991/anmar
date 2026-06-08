@@ -235,8 +235,13 @@
       border-radius: 8px;
       display: grid;
       place-items: center;
-      background: var(--primary-soft);
-      color: var(--primary-strong);
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .icon-btn:hover,
+    .icon-btn[aria-expanded="true"] {
+      background: var(--primary-strong);
     }
 
     .menu-btn { display: none; }
@@ -299,6 +304,9 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(90deg, rgba(4,22,44,0.92) 0%, rgba(4,22,44,0.6) 40%, rgba(4,22,44,0.1) 100%);
+    }
+    html[dir="rtl"] .slide::after {
+      background: linear-gradient(270deg, rgba(4,22,44,0.92) 0%, rgba(4,22,44,0.6) 40%, rgba(4,22,44,0.1) 100%);
     }
     .slide-content {
       position: relative;
@@ -1055,8 +1063,30 @@
     .article { padding: 0; overflow: hidden; }
 
     .article-image {
-      min-height: 176px;
-      background: #c8d6e4;
+      min-height: 206px;
+      background-color: #c8d6e4;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .article-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(4,22,44,0.02), rgba(4,22,44,0.2));
+    }
+
+    .article-image.cold-chain {
+      background-image: url("assets/cold-storage-generated.png");
+    }
+
+    .article-image.secure-goods {
+      background-image: url("assets/medical-storage-generated.png");
+    }
+
+    .article-image.dammam-capacity {
+      background-image: url("assets/warehouse-exterior.png");
     }
 
     .article-body {
@@ -1259,15 +1289,15 @@
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      padding: 24px 32px;
+      padding: 18px 24px;
       border-radius: 12px;
       background: #ffffff;
-      margin-bottom: 24px;
+      margin: 0 0 18px;
       width: auto;
     }
     
     .footer .brand-logo {
-      width: 180px;
+      width: 210px;
       height: auto;
     }
 
@@ -1324,12 +1354,19 @@
       display: grid;
       grid-template-columns: 1.25fr repeat(4, 1fr);
       gap: 34px;
+      align-items: start;
       padding: 48px 0;
     }
 
     .footer p, .footer a {
-      color: var(--muted);
+      color: #dbe8f4;
       font-size: 13px;
+    }
+
+    .footer p {
+      max-width: 300px;
+      margin: 0;
+      line-height: 1.65;
     }
 
     .footer h4 {
@@ -1873,7 +1910,7 @@
         </div>
         <div class="articles">
           <article class="article">
-            <div class="article-image" role="img" aria-label="Warehouse exterior at sunset"></div>
+            <div class="article-image cold-chain" role="img" aria-label="Temperature controlled warehouse storage for cold chain logistics"></div>
             <div class="article-body">
               <span class="tag">Industry Trends</span>
               <h3>Cold chain logistics in Saudi Arabia</h3>
@@ -1882,7 +1919,7 @@
             </div>
           </article>
           <article class="article">
-            <div class="article-image" role="img" aria-label="Warehouse security and loading dock"></div>
+            <div class="article-image secure-goods" role="img" aria-label="Secure warehouse racking for sensitive and high-value goods"></div>
             <div class="article-body">
               <span class="tag">Best Practices</span>
               <h3>Keeping high-value goods secure</h3>
@@ -1891,7 +1928,7 @@
             </div>
           </article>
           <article class="article">
-            <div class="article-image" role="img" aria-label="Modern logistics warehouse"></div>
+            <div class="article-image dammam-capacity" role="img" aria-label="Modern warehouse facility supporting Dammam logistics capacity"></div>
             <div class="article-body">
               <span class="tag">Company News</span>
               <h3>Expanding capacity in Dammam</h3>

@@ -184,14 +184,19 @@ body { top: 0 !important; }
   height: 40px;
   border: 0;
   border-radius: 8px;
-  background: #d9e8f7;
-  color: var(--navy);
+  background: var(--navy);
+  color: #fff;
   font-weight: 800;
   font-size: 0;
   position: relative;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.menu-btn:hover,
+.menu-btn[aria-expanded="true"] {
+  background: var(--navy-dark);
 }
 
 .menu-btn::before {
@@ -233,6 +238,12 @@ body { top: 0 !important; }
     radial-gradient(circle at 18% 18%, rgba(216,180,106,0.22), transparent 30%),
     linear-gradient(128deg, var(--navy-dark) 0%, var(--navy) 62%, #f7f9fc 62%, #dfe8f1 100%);
   color: #f7fbff;
+}
+
+html[dir="rtl"] .page-hero {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(216,180,106,0.22), transparent 30%),
+    linear-gradient(270deg, var(--navy-dark) 0%, var(--navy) 62%, #f7f9fc 62%, #dfe8f1 100%);
 }
 
 .hero-grid {
@@ -325,6 +336,12 @@ h1 span, .section-kicker { color: var(--accent); }
     linear-gradient(122deg, var(--navy-dark) 0%, var(--navy) 66%, #eef5fb 66%, #dfe8f1 100%);
 }
 
+html[dir="rtl"] .locations-hero {
+  background:
+    radial-gradient(circle at 88% 18%, rgba(216,180,106,0.22), transparent 30%),
+    linear-gradient(238deg, var(--navy-dark) 0%, var(--navy) 66%, #eef5fb 66%, #dfe8f1 100%);
+}
+
 .locations-hero .hero-grid {
   grid-template-columns: minmax(0, 1fr) minmax(330px, 0.92fr);
   gap: clamp(34px, 5vw, 62px);
@@ -388,6 +405,14 @@ h1 span, .section-kicker { color: var(--accent); }
   background-position: center;
 }
 
+html[dir="rtl"] .banner-hero {
+  background:
+    linear-gradient(270deg, rgba(4,22,44,0.94) 0%, rgba(4,22,44,0.76) 35%, rgba(4,22,44,0.26) 64%, rgba(4,22,44,0.08) 100%),
+    var(--hero-banner);
+  background-size: cover;
+  background-position: center;
+}
+
 .banner-hero .hero-grid {
   grid-template-columns: minmax(0, 0.82fr) minmax(320px, 0.58fr);
 }
@@ -410,6 +435,64 @@ h1 span, .section-kicker { color: var(--accent); }
 
 .banner-hero .mini-stat {
   background: rgba(255,255,255,0.9);
+}
+
+.medical-hero {
+  min-height: auto;
+  padding: 76px 0 72px;
+  background:
+    radial-gradient(circle at 14% 22%, rgba(216,180,106,0.18), transparent 28%),
+    linear-gradient(115deg, rgba(4,22,44,0.98) 0%, rgba(8,38,74,0.94) 48%, rgba(8,38,74,0.72) 100%),
+    var(--hero-banner);
+  background-size: cover;
+  background-position: center;
+}
+
+.medical-hero .hero-grid {
+  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.78fr);
+  gap: clamp(34px, 5vw, 70px);
+  align-items: center;
+}
+
+.medical-hero h1 {
+  max-width: 720px;
+  font-size: clamp(42px, 4.4vw, 58px);
+}
+
+.medical-hero .hero-lead {
+  max-width: 700px;
+}
+
+.medical-hero .offer-note {
+  max-width: 650px;
+}
+
+.medical-hero .hero-card {
+  align-self: center;
+  justify-self: end;
+  width: min(100%, 520px);
+  border-color: rgba(216,180,106,0.34);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.28);
+  overflow: hidden;
+}
+
+.medical-hero .hero-card img {
+  display: block;
+  width: 100%;
+  height: clamp(310px, 32vw, 430px);
+  min-height: 0;
+  object-fit: cover;
+}
+
+.medical-hero .hero-card-body {
+  background: rgba(8,38,74,0.12);
+}
+
+.medical-hero .mini-stat {
+  background: #fff;
+  min-height: 92px;
 }
 
 .mini-stat {
@@ -899,19 +982,22 @@ details p {
   display: grid;
   grid-template-columns: 1.25fr repeat(4, 1fr);
   gap: 34px;
+  align-items: start;
   padding: 48px 0;
 }
 
 .footer .brand {
   width: fit-content;
-  padding: 10px 12px;
-  border-radius: 8px;
+  margin: 0 0 18px;
+  padding: 18px 24px;
+  border-radius: 12px;
   background: #fff;
 }
 
-.footer .brand-logo { width: 255px; height: auto; }
+.footer .brand-logo { width: 210px; height: auto; }
 .footer h4 { margin: 0 0 14px; color: #f7fbff; font-size: 17px; }
 .footer p, .footer a { color: #dbe8f4; font-size: 13px; }
+.footer p { max-width: 300px; margin: 0; line-height: 1.65; }
 .footer-links { display: grid; gap: 10px; }
 .copyright {
   border-top: 1px solid rgba(216,180,106,0.2);
@@ -966,6 +1052,11 @@ details p {
   .menu-btn { display: flex; }
   .hero-grid, .grid-2, .footer-grid, .cta, .split-panel { grid-template-columns: 1fr; }
   .banner-hero .hero-grid { grid-template-columns: 1fr; }
+  .medical-hero .hero-grid { grid-template-columns: 1fr; }
+  .medical-hero .hero-card {
+    justify-self: stretch;
+    width: min(100%, 620px);
+  }
   .grid-3, .grid-4, .proof-row, .step-list { grid-template-columns: repeat(2, 1fr); }
   .sticky-quote { position: static; }
 }
@@ -979,6 +1070,11 @@ details p {
     padding: 44px 0 52px;
     background:
       radial-gradient(circle at 20% 8%, rgba(216,180,106,0.18), transparent 35%),
+      linear-gradient(180deg, var(--navy-dark), var(--navy));
+  }
+  html[dir="rtl"] .page-hero {
+    background:
+      radial-gradient(circle at 80% 8%, rgba(216,180,106,0.18), transparent 35%),
       linear-gradient(180deg, var(--navy-dark), var(--navy));
   }
   .locations-hero {
@@ -1002,6 +1098,22 @@ details p {
       var(--hero-banner);
     background-size: cover;
     background-position: center right;
+  }
+  html[dir="rtl"] .banner-hero {
+    background:
+      linear-gradient(180deg, rgba(4,22,44,0.95) 0%, rgba(4,22,44,0.82) 56%, rgba(4,22,44,0.68) 100%),
+      var(--hero-banner);
+    background-size: cover;
+    background-position: center left;
+  }
+  .medical-hero {
+    padding: 48px 0 44px;
+  }
+  .medical-hero h1 {
+    font-size: clamp(34px, 10vw, 46px);
+  }
+  .medical-hero .hero-card img {
+    height: 260px;
   }
   h1 { font-size: 36px; }
   .hero-card img { min-height: 240px; }
