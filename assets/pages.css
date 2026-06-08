@@ -522,6 +522,30 @@ html[dir="rtl"] .banner-hero {
 .section.dark > .container > .section-title h3 { color: #f7fbff; }
 .section.dark > .container > .section-title p { color: #dbe8f4; }
 
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 620ms ease, transform 620ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 80ms; }
+.reveal-delay-2 { transition-delay: 150ms; }
+.reveal-delay-3 { transition-delay: 220ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 .section-head {
   display: flex;
   justify-content: space-between;
