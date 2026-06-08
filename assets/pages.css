@@ -316,6 +316,33 @@ h1 {
 }
 
 h1 span, .section-kicker { color: var(--accent); }
+.nowrap { white-space: nowrap; }
+
+.locations-hero {
+  padding: 72px 0 68px;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(216,180,106,0.22), transparent 30%),
+    linear-gradient(122deg, var(--navy-dark) 0%, var(--navy) 66%, #eef5fb 66%, #dfe8f1 100%);
+}
+
+.locations-hero .hero-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(330px, 0.92fr);
+  gap: clamp(34px, 5vw, 62px);
+}
+
+.locations-hero h1 {
+  max-width: 690px;
+  font-size: clamp(40px, 4.4vw, 58px);
+}
+
+.locations-hero .hero-lead {
+  max-width: 620px;
+}
+
+.locations-hero .hero-card {
+  max-width: 560px;
+  justify-self: end;
+}
 
 .hero-lead {
   max-width: 650px;
@@ -953,6 +980,20 @@ details p {
     background:
       radial-gradient(circle at 20% 8%, rgba(216,180,106,0.18), transparent 35%),
       linear-gradient(180deg, var(--navy-dark), var(--navy));
+  }
+  .locations-hero {
+    padding: 48px 0 54px;
+  }
+  .locations-hero .hero-grid {
+    gap: 30px;
+  }
+  .locations-hero h1 {
+    max-width: 100%;
+    font-size: 34px;
+  }
+  .locations-hero .hero-card {
+    max-width: 100%;
+    justify-self: stretch;
   }
   .banner-hero {
     min-height: auto;
