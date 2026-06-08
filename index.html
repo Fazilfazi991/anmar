@@ -1324,9 +1324,9 @@
       color: #fff;
       font-size: 0;
       line-height: 0;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(12px);
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
       box-shadow: 0 18px 42px rgba(46, 49, 48, 0.2);
       transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
     }
@@ -2124,11 +2124,7 @@
     });
 
     const floatingWa = document.querySelector(".floating-wa");
-    const updateFloatingWa = () => {
-      floatingWa.classList.toggle("visible", window.scrollY > 520);
-    };
-    updateFloatingWa();
-    window.addEventListener("scroll", updateFloatingWa, { passive: true });
+    if (floatingWa) floatingWa.classList.add("visible");
 
     // Slider Logic
     const slides = document.querySelectorAll('.slide');
