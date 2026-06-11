@@ -81,7 +81,7 @@ document.querySelectorAll("[data-lead-form]").forEach((form) => {
         if (status) status.textContent = "Request sent. Our operations team will contact you shortly.";
         form.reset();
       } else if (status) {
-        status.textContent = "Request saved locally. Connect the sheet/email endpoint to send it to operations@almrebid.sa.";
+        status.textContent = "Request saved locally. Connect the sheet/email endpoint to send it to operations@anmar.com.sa.";
       }
     } catch (error) {
       if (status) status.textContent = "Request saved locally. Please WhatsApp or call if urgent.";

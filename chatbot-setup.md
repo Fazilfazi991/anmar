@@ -37,7 +37,7 @@ This local dashboard is useful for testing, but it is not a central shared lead 
 
 ## Google Sheet and Email Setup
 
-To save chatbot and contact-form leads to Google Sheets and send email to `operations@almrebid.sa`:
+To save chatbot and contact-form leads to Google Sheets and send email to `operations@anmar.com.sa`:
 
 1. Create a Google Sheet.
 2. Copy the spreadsheet ID from the Sheet URL.
@@ -52,7 +52,7 @@ To save chatbot and contact-form leads to Google Sheets and send email to `opera
 ```js
 window.ANMAR_CHATBOT_CONFIG = {
   endpoint: "PASTE_WEB_APP_URL_HERE",
-  notifyEmail: "operations@almrebid.sa",
+  notifyEmail: "operations@anmar.com.sa",
   whatsapp: "966598626402"
 };
 ```
@@ -61,7 +61,7 @@ After this is connected:
 
 - Chatbot leads will be sent to the Google Sheet.
 - Contact-form leads will be sent to the same Google Sheet.
-- Email notifications will be sent to `operations@almrebid.sa`.
+- Email notifications will be sent to `operations@anmar.com.sa`.
 - Opening the deployed Apps Script Web App URL in a browser will show a central leads dashboard from the Google Sheet.
 
 ## Important
